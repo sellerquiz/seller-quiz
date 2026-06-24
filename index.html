@@ -27,7 +27,6 @@
   .main-tab:hover:not(.active) { color: #332E80; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-
   .lang-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; }
   .lang-btn { padding: 6px 16px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #666; cursor: pointer; font-size: 13px; font-family: 'Readex Pro', sans-serif; }
   .lang-btn.active { background: #eeecf9; color: #332E80; border-color: #332E80; font-weight: 500; }
@@ -70,32 +69,37 @@
   .restart-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; margin-top: 1rem; font-family: 'Readex Pro', sans-serif; }
   .restart-btn:hover { background: #f5f5f3; }
 
+  .ex-wrap { padding: 0.5rem 0; }
   .ex-progress-bg { height: 4px; background: #e5e5e5; border-radius: 2px; margin-bottom: 1.5rem; }
   .ex-progress-fill { height: 4px; background: #332E80; border-radius: 2px; transition: width 0.3s; }
   .ex-counter { font-size: 12px; color: #999; margin-bottom: 0.5rem; }
   .ex-title { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem; }
-  .ex-instruction { font-size: 13px; color: #666; margin-bottom: 1.25rem; }
-  .cards-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-bottom: 1.25rem; }
-  .email-card { border: 0.5px solid #ccc; border-radius: 10px; padding: 12px; background: #fff; cursor: pointer; transition: border-color 0.15s; position: relative; min-height: 130px; }
-  .email-card:hover { border-color: #332E80; z-index: 5; }
-  .email-preview { font-size: 11px; color: #666; line-height: 1.5; overflow: hidden; max-height: 90px; white-space: pre-line; pointer-events: none; }
-.email-expanded { display: none; position: absolute; top: 0; width: 240px; max-height: 400px; overflow-y: auto; background: #fff; border: 1px solid #332E80; border-radius: 10px; padding: 14px; z-index: 20; font-size: 11.5px; line-height: 1.7; color: #1a1a1a; white-space: pre-line; pointer-events: auto; }  .email-card:hover .email-expanded { display: block; }
-  .col-0 .email-expanded { left: 0; right: auto; }
-  .col-1 .email-expanded { left: 50%; transform: translateX(-50%); }
-  .col-2 .email-expanded { right: 0; left: auto; }
-  .email-card.reveal-correct { border-color: #7ab84a; background: #eaf3de; }
-  .email-card.selected-wrong { border-color: #e24b4a; background: #fcebeb; }
-  .email-card:disabled, .email-card.answered { pointer-events: none; }
-  .ex-feedback { min-height: 44px; margin-bottom: 1rem; }
-  .ex-feedback-msg { padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 1.5; }
-  .ex-feedback-msg.ok { background: #eaf3de; color: #3b6d11; border: 0.5px solid #7ab84a; }
-  .ex-feedback-msg.no { background: #fcebeb; color: #a32d2d; border: 0.5px solid #e24b4a; }
-  .ex-next-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; display: none; font-family: 'Readex Pro', sans-serif; }
-  .ex-next-btn.show { display: inline-block; }
-  .ex-next-btn:hover { background: #f5f5f3; }
-  .ex-review-item { border: 0.5px solid #e5e5e5; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 8px; font-size: 13px; background: #fff; }
-  .ex-review-item.correct { border-left: 3px solid #7ab84a; }
-  .ex-review-item.wrong { border-left: 3px solid #e24b4a; }
+  .ex-instruction { font-size: 13px; color: #666; margin-bottom: 1.25rem; line-height: 1.5; }
+  .email-shell { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; font-size: 14px; line-height: 1.8; }
+  .email-part { display: block; padding: 3px 6px; border-radius: 4px; background: #f5f5f3; margin: 2px 0; cursor: pointer; transition: background 0.15s; position: relative; white-space: pre-line; }
+  .email-part:hover { background: #eceae6; }
+  .email-part.found { background: #eaf3de; color: #1a1a1a; }
+  .email-part.non-clickable { cursor: default; }
+  .email-part.non-clickable:hover { background: #f5f5f3; }
+  .email-spacer { display: block; height: 10px; }
+  .popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 100; align-items: center; justify-content: center; padding: 1rem; }
+  .popup-overlay.show { display: flex; }
+  .popup-box { background: #fff; border-radius: 12px; padding: 1.5rem; max-width: 480px; width: 100%; border: 0.5px solid #e5e5e5; }
+  .popup-improved-label { font-size: 11px; font-weight: 500; color: #3b6d11; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .popup-improved-text { font-size: 13px; color: #3b6d11; background: #eaf3de; border-radius: 8px; padding: 10px 12px; margin-bottom: 1rem; line-height: 1.7; white-space: pre-line; }
+  .popup-why-label { font-size: 11px; font-weight: 500; color: #332E80; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .popup-why-text { font-size: 13px; color: #1a1a1a; line-height: 1.6; margin-bottom: 1rem; }
+  .popup-close { padding: 7px 18px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 13px; font-family: 'Readex Pro', sans-serif; }
+  .popup-close:hover { background: #f5f5f3; }
+  .ex-bottom-row { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
+  .reveal-btn { padding: 7px 16px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #666; cursor: pointer; font-size: 13px; font-family: 'Readex Pro', sans-serif; }
+  .reveal-btn:hover { background: #f5f5f3; }
+  .ex-next-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #aaa; font-size: 14px; font-family: 'Readex Pro', sans-serif; cursor: not-allowed; }
+  .ex-next-btn.unlocked { color: #1a1a1a; cursor: pointer; }
+  .ex-next-btn.unlocked:hover { background: #f5f5f3; }
+  .done-screen { text-align: center; padding: 3rem 1rem; }
+  .done-screen h2 { font-family: 'Youth Black', sans-serif; font-size: 24px; font-weight: 900; color: #332E80; margin-bottom: 1rem; }
+  .done-screen p { font-size: 15px; color: #666; margin-bottom: 2rem; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -108,6 +112,16 @@
   </div>
   <div id="tab-quiz" class="tab-content active"><div id="app"></div></div>
   <div id="tab-examples" class="tab-content"><div id="ex-app"></div></div>
+</div>
+
+<div class="popup-overlay" id="popup" onclick="closePopup(event)">
+  <div class="popup-box" onclick="event.stopPropagation()">
+    <div class="popup-improved-label" id="popup-improved-label"></div>
+    <div class="popup-improved-text" id="popup-improved-text" style="display:none"></div>
+    <div class="popup-why-label" id="popup-why-label"></div>
+    <div class="popup-why-text" id="popup-why-text"></div>
+    <button class="popup-close" onclick="closePopup()">Close</button>
+  </div>
 </div>
 
 <script>
@@ -165,73 +179,260 @@ const QUIZZES = {
   }
 };
 
-const SCENARIOS = [
-  {
-    title:"Scenario 1: Return request with damaged item",
-    emails:[
-      {level:'bad',preview:'Device must be sent back before refund can be processed. Refund will be issued after inspection...',full:'Device must be sent back before refund can be processed. Refund will be issued after inspection. If item is not returned within 14 days the request will be closed.'},
-      {level:'medium',preview:'Hello John, thank you for contacting us. We have received your return request...',full:'Hello John, thank you for contacting us. We have received your return request and will process it as soon as possible. Please send the item back using the return label attached. Once we receive it we will issue your refund. Let us know if you need anything else.\nKind regards, Sofia'},
-      {level:'good',preview:'Hello John,\n\nThank you for reaching out to us and for your patience.\n\nI\'m sorry to hear that the screen...',full:'Hello John,\n\nThank you for reaching out to us and for your patience.\n\nI\'m sorry to hear that the screen on your iPhone stopped working, I understand that this is really frustrating.\n\nWe\'d be happy to arrange a return and inspection for you. Once you confirm you\'d like to proceed, we\'ll send you a prepaid return label within 24 hours. As soon as we receive the item back, we\'ll examine it and reach out to you with a solution.\n\nPlease let me know if you have any questions and I\'ll be happy to help.\n\nHave a great rest of your day!\n\nKind regards,\nSofia\nTechSeller GmbH'}
-    ],
-    goodFeedback:'Correct! This message has a personal greeting, clear empathy, specific next steps with a timeline, and well-spaced paragraphs.',
-    wrongFeedback:'Not quite. The best message uses the customer\'s name, shows empathy, gives clear next steps, and separates each point into its own paragraph with empty lines.'
+const EXAMPLES = {
+  en: {
+    instruction: "Click on the parts of the email you think need improving. Find all improvements to continue.",
+    reveal: "Reveal all",
+    next: "Next",
+    finish: "Finish",
+    improved: "Improved",
+    why: "Why",
+    close: "Close",
+    done_title: "Well done!",
+    done_text: "You've worked through all the email examples. Keep these guidelines in mind every time you write to a customer.",
+    restart: "Start again",
+    scenarios: [
+      {
+        title: "Scenario 1: Return request",
+        parts: [
+          {text:"Hello Emma,", clickable:false},
+          {text:"\n"},
+          {text:"We have received your message and would look into the issue. The device should be eligible for a return, but we would need to verify this first.", clickable:true, improved:"Thank you for reaching out to us and for your patience. We are sorry to hear that the screen on your iPhone stopped working, we understand that this is really frustrating.", why:"Always open by thanking the customer and apologising explicitly for the inconvenience before anything else. Words like 'would', 'should' and 'would need' are unreliable expressions that create uncertainty — avoid them."},
+          {text:"\n"},
+          {text:"We cannot process the return until we receive the item back.", clickable:true, improved:"We would be happy to arrange a return and inspection for you. Once you confirm you would like to proceed, we will send you a prepaid return label within 24 hours. As soon as we receive the item back, we will examine it and reach out to you with a solution.", why:"Focus on what you CAN do, not what you cannot. Negative framing frustrates customers and does not help them understand next steps."},
+          {text:"\n"},
+          {text:"If you have any questions, you can contact us.", clickable:true, improved:"Please do not hesitate to reach out if you have any questions, we are happy to help. Have a great rest of your day!", why:"End messages on a positive note with a warm farewell and an explicit offer of further support. 'You can contact us' is passive and cold."},
+          {text:"\n"},
+          {text:"Kind regards,\nSofia\nTechSeller GmbH", clickable:false}
+        ]
+      },
+      {
+        title: "Scenario 2: Delivery status",
+        parts: [
+          {text:"Dear Mr. Smith,", clickable:true, improved:"Hello James,", why:"Always address customers by their first name and use an informal tone, unless they have explicitly requested otherwise. 'Dear Mr. Smith' is too formal for the refurbed tone of voice."},
+          {text:"\n"},
+          {text:"Thank you for your message.", clickable:false},
+          {text:"\n"},
+          {text:"We have looked into your order and can confirm that it is currently in transit.", clickable:false},
+          {text:"The estimated delivery date is within the next few days.", clickable:true, improved:"According to the tracking information, your order should arrive by Thursday 26 June.", why:"Be specific and give a concrete timeline. Vague expressions like 'within the next few days' do not manage the customer's expectations well."},
+          {text:"Please refer to the tracking link in your order confirmation for further updates.", clickable:true, improved:"You can follow the latest updates using your tracking link here: [tracking link]. Please do not hesitate to reach out if it has not arrived by then and we will look into it further for you.", why:"Make it easy for the customer — include the tracking link directly in the message and proactively offer further help."},
+          {text:"\n"},
+          {text:"Should you require further assistance, please do not hesitate to contact us.", clickable:false},
+          {text:"\n"},
+          {text:"Yours sincerely,\nSofia", clickable:true, improved:"Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH", why:"Always end with a warm, friendly farewell phrase before your signature. 'Yours sincerely' is overly formal and the company name is missing from the signature."}
+        ]
+      },
+      {
+        title: "Scenario 3: Refund after return",
+        parts: [
+          {text:"Hello Michael,", clickable:false},
+          {text:"\n"},
+          {text:"Thank you for returning your item and for your patience.", clickable:false},
+          {text:"\n"},
+          {text:"We are happy to let you know that we have received your return. Our team will now analyse the ticket and process your refund once the inspection is complete.", clickable:true, improved:"We are happy to let you know that we have received your return and our team is currently inspecting it.", why:"Avoid internal technical terms like 'ticket' — use 'request' instead. Separate the confirmation and the next steps into their own paragraphs for clarity."},
+          {text:"\n"},
+          {text:"Please let us know if you have any questions.", clickable:true, improved:"Once the inspection is complete, your refund will be processed within 3 to 5 business days. You will receive a confirmation email as soon as it has been issued.\n\nPlease let us know if you have any questions in the meantime, we are happy to help. Have a great rest of your week!", why:"Always give a realistic timeline and tell the customer what to expect next. End with a warm farewell and an offer of further support."},
+          {text:"\n"},
+          {text:"Kind regards,\nSofia\nTechSeller GmbH", clickable:false}
+        ]
+      },
+      {
+        title: "Scenario 4: Wrong item received",
+        parts: [
+          {text:"Hello David,", clickable:false},
+          {text:"\n"},
+          {text:"We have received your request.", clickable:true, improved:"Thank you for getting in touch with us, and we sincerely apologize for sending you the wrong item, we can imagine how disappointing that must be.", why:"Always open with a thank you and an explicit apology. Never skip straight to the matter at hand without acknowledging the customer's experience first."},
+          {text:"\n"},
+          {text:"To resolve this as quickly as possible, please send photos of the item directly to our email address at returns@techseller.com so our returns team can handle this for you.", clickable:true, improved:"To help us resolve this as quickly as possible, could you send us a photo of the item you received? This will help us confirm the details and arrange the correct replacement for you right away.", why:"Never ask customers to contact you outside the ticketing system. refurbed will not be able to support either party if the information is not visible to them. Always keep all communication within the ticketing system."},
+          {text:"\n"},
+          {text:"Once we receive your photos, we will get back to you within 24 hours with the next steps.", clickable:false},
+          {text:"\n"},
+          {text:"Kind regards,\nSofia", clickable:true, improved:"Thank you for your patience. Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH", why:"Always include a warm closing before your signature and make sure the company name is included. End on a positive note rather than closing abruptly."}
+        ]
+      },
+      {
+        title: "Scenario 5: Warranty coverage",
+        parts: [
+          {text:"Hello Sarah, thank you for your message regarding your device. As per our warranty terms, the device is covered under a 12-month limited warranty for manufacturing defects. To initiate the warranty claim procedure, we require documentation of the defect including photographic evidence. Once the aforementioned documentation has been submitted, our technical department will assess the eligibility of your claim in accordance with the applicable warranty policy. Please let us know if you have any questions.", clickable:true, improved:null, why:"This message should be divided into clear paragraphs with one empty line between each. Each paragraph should focus on one point — greeting, empathy, solution, next steps, farewell. Also avoid technical jargon like 'aforementioned' and 'initiate the warranty claim procedure' — write simply and clearly."},
+          {text:"\n"},
+          {text:"Kind regards,\nSofia", clickable:true, improved:"Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH", why:"Always end with a warm farewell phrase and include your company name in the signature."}
+        ]
+      }
+    ]
   },
-  {
-    title:"Scenario 2: Customer asking about delivery status",
-    emails:[
-      {level:'bad',preview:'Order is in transit. Delivery times are estimates only. Check tracking link for updates.',full:'Order is in transit. Delivery times are estimates only. Check tracking link for updates.'},
-      {level:'medium',preview:'Hello Sarah, thank you for contacting us. Your order is currently on its way...',full:'Hello Sarah, thank you for contacting us. Your order is currently on its way and should arrive soon. You can check the tracking link in your confirmation email for updates. Let us know if you need anything else.\nKind regards, Sofia, TechSeller GmbH'},
-      {level:'good',preview:'Hello Sarah,\n\nThank you for reaching out to us.\n\nI\'m sorry to hear your order hasn\'t arrived yet...',full:'Hello Sarah,\n\nThank you for reaching out to us.\n\nI\'m sorry to hear your order hasn\'t arrived yet, I completely understand how frustrating that can be.\n\nI\'ve checked your shipment and it\'s currently in transit. According to the tracking information, your order should arrive by Thursday 26 June. You can follow the latest updates using your tracking link here: [tracking link].\n\nPlease don\'t hesitate to reach out if it hasn\'t arrived by then and I\'ll look into it further for you.\n\nHave a great day!\n\nKind regards,\nSofia\nTechSeller GmbH'}
-    ],
-    goodFeedback:'Correct! This message shows empathy, gives a specific delivery date, and proactively offers further help if needed.',
-    wrongFeedback:'Not quite. The best message acknowledges the concern, gives a concrete timeline, and offers further help, with clear paragraph spacing.'
+  de: {
+    instruction: "Klicke auf die Teile der E-Mail, die deiner Meinung nach verbessert werden sollten. Finde alle Verbesserungen, um fortzufahren.",
+    reveal: "Alles aufdecken",
+    next: "Weiter",
+    finish: "Abschließen",
+    improved: "Verbessert",
+    why: "Warum",
+    close: "Schließen",
+    done_title: "Gut gemacht!",
+    done_text: "Du hast alle E-Mail-Beispiele durchgearbeitet. Denke bei jeder Nachricht an einen Kunden an diese Richtlinien.",
+    restart: "Neu starten",
+    scenarios: [
+      {
+        title: "Szenario 1: Rückgabeanfrage",
+        parts: [
+          {text:"Hallo Emma,", clickable:false},
+          {text:"\n"},
+          {text:"Wir haben deine Nachricht erhalten und würden uns das Problem ansehen. Das Gerät sollte für eine Rücksendung berechtigt sein, aber wir müssten dies erst überprüfen.", clickable:true, improved:"Vielen Dank, dass du dich an uns gewandt hast, und danke für deine Geduld. Es tut uns leid zu hören, dass der Bildschirm deines iPhones nicht mehr funktioniert, wir verstehen, dass das wirklich frustrierend ist.", why:"Beginne immer mit einem Dankeschön und einer ausdrücklichen Entschuldigung. 'Würden', 'sollte' und 'müssten' sind unzuverlässige Ausdrücke, die Unsicherheit erzeugen — vermeide sie."},
+          {text:"\n"},
+          {text:"Wir können die Rücksendung nicht bearbeiten, bis wir den Artikel zurückerhalten haben.", clickable:true, improved:"Wir helfen dir gerne dabei, eine Rücksendung und Inspektion zu arrangieren. Sobald du bestätigst, dass du fortfahren möchtest, schicken wir dir innerhalb von 24 Stunden ein vorfrankiertes Rücksendeetikett. Sobald wir den Artikel erhalten haben, werden wir ihn untersuchen und uns mit einer Lösung bei dir melden.", why:"Betone, was du TUN KANNST, nicht was du nicht kannst. Negative Formulierungen frustrieren Kunden und helfen ihnen nicht, die nächsten Schritte zu verstehen."},
+          {text:"\n"},
+          {text:"Bei Fragen kannst du dich bei uns melden.", clickable:true, improved:"Bitte melde dich, wenn du Fragen hast, wir helfen dir gerne weiter. Schönen Rest des Tages!", why:"Beende Nachrichten mit einer warmen Verabschiedung und einem ausdrücklichen Angebot für weitere Unterstützung. 'Du kannst dich bei uns melden' ist passiv und kalt."},
+          {text:"\n"},
+          {text:"Viele Grüße,\nSofia\nTechSeller GmbH", clickable:false}
+        ]
+      },
+      {
+        title: "Szenario 2: Lieferstatus",
+        parts: [
+          {text:"Sehr geehrter Herr Smith,", clickable:true, improved:"Hallo James,", why:"Sprich Kunden immer mit ihrem Vornamen und in einem informellen Ton an, es sei denn, sie haben ausdrücklich etwas anderes gewünscht. 'Sehr geehrter Herr Smith' ist zu formell für den refurbed Tonfall."},
+          {text:"\n"},
+          {text:"Vielen Dank für Ihre Nachricht.", clickable:false},
+          {text:"\n"},
+          {text:"Wir haben Ihre Bestellung überprüft und können bestätigen, dass sie sich derzeit im Transit befindet.", clickable:false},
+          {text:"Der voraussichtliche Liefertermin liegt innerhalb der nächsten Tage.", clickable:true, improved:"Laut den Tracking-Informationen sollte deine Bestellung bis Donnerstag, den 26. Juni ankommen.", why:"Sei konkret und gib einen klaren Zeitrahmen an. Vage Ausdrücke wie 'innerhalb der nächsten Tage' helfen dem Kunden nicht weiter."},
+          {text:"Bitte beachten Sie den Tracking-Link in Ihrer Auftragsbestätigung für weitere Updates.", clickable:true, improved:"Du kannst die neuesten Updates über deinen Tracking-Link hier verfolgen: [Tracking-Link]. Bitte melde dich, wenn die Bestellung bis dahin nicht angekommen ist, und wir werden die Sache für dich weiter verfolgen.", why:"Füge den Tracking-Link direkt in die Nachricht ein und biete proaktiv weitere Hilfe an."},
+          {text:"\n"},
+          {text:"Sollten Sie weitere Unterstützung benötigen, stehen wir Ihnen gerne zur Verfügung.", clickable:false},
+          {text:"\n"},
+          {text:"Mit freundlichen Grüßen,\nSofia", clickable:true, improved:"Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH", why:"Beende die Nachricht mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist. 'Mit freundlichen Grüßen' ist zu formell für den refurbed Tonfall."}
+        ]
+      },
+      {
+        title: "Szenario 3: Rückerstattung nach Rücksendung",
+        parts: [
+          {text:"Hallo Michael,", clickable:false},
+          {text:"\n"},
+          {text:"Vielen Dank, dass du den Artikel zurückgeschickt hast, und danke für deine Geduld.", clickable:false},
+          {text:"\n"},
+          {text:"Wir freuen uns, dir mitteilen zu können, dass wir deine Rücksendung erhalten haben. Unser Team wird nun das Ticket analysieren und deine Rückerstattung bearbeiten, sobald die Inspektion abgeschlossen ist.", clickable:true, improved:"Wir freuen uns, dir mitteilen zu können, dass wir deine Rücksendung erhalten haben und unser Team sie derzeit prüft.", why:"Vermeide interne Begriffe wie 'Ticket' — verwende stattdessen 'Anfrage'. Trenne außerdem die Bestätigung von den nächsten Schritten für mehr Klarheit."},
+          {text:"\n"},
+          {text:"Bitte melde dich, wenn du Fragen hast.", clickable:true, improved:"Sobald die Prüfung abgeschlossen ist, wird deine Rückerstattung innerhalb von 3 bis 5 Werktagen bearbeitet. Du erhältst eine Bestätigungs-E-Mail, sobald sie ausgestellt wurde.\n\nBitte melde dich, wenn du in der Zwischenzeit Fragen hast, wir helfen dir gerne weiter. Schönen Rest der Woche!", why:"Gib immer einen realistischen Zeitrahmen an und teile dem Kunden mit, was er als nächstes erwarten kann. Beende die Nachricht mit einer warmen Verabschiedung."},
+          {text:"\n"},
+          {text:"Viele Grüße,\nSofia\nTechSeller GmbH", clickable:false}
+        ]
+      },
+      {
+        title: "Szenario 4: Falscher Artikel erhalten",
+        parts: [
+          {text:"Hallo David,", clickable:false},
+          {text:"\n"},
+          {text:"Wir haben deine Anfrage erhalten.", clickable:true, improved:"Vielen Dank, dass du dich an uns gewandt hast, und wir entschuldigen uns aufrichtig dafür, dass wir dir den falschen Artikel geschickt haben, wir können uns vorstellen, wie enttäuschend das sein muss.", why:"Beginne immer mit einem Dankeschön und einer ausdrücklichen Entschuldigung. Gehe nie direkt zur Sache, ohne zuerst die Erfahrung des Kunden anzuerkennen."},
+          {text:"\n"},
+          {text:"Um dies so schnell wie möglich zu lösen, sende bitte Fotos des Artikels direkt an unsere E-Mail-Adresse returns@techseller.com, damit unser Rücksendeteam dies für dich bearbeiten kann.", clickable:true, improved:"Damit wir dies so schnell wie möglich lösen können, könntest du uns bitte ein Foto des erhaltenen Artikels schicken? Das hilft uns, die Details zu bestätigen und den richtigen Ersatz sofort für dich zu arrangieren.", why:"Bitte Kunden niemals, dich außerhalb des Ticketsystems zu kontaktieren. refurbed kann weder den Verkäufer noch den Kunden unterstützen, wenn die Informationen nicht sichtbar sind."},
+          {text:"\n"},
+          {text:"Sobald wir deine Fotos erhalten haben, melden wir uns innerhalb von 24 Stunden mit den nächsten Schritten bei dir.", clickable:false},
+          {text:"\n"},
+          {text:"Viele Grüße,\nSofia", clickable:true, improved:"Danke für deine Geduld. Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH", why:"Beende die Nachricht immer mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
+        ]
+      },
+      {
+        title: "Szenario 5: Garantieabdeckung",
+        parts: [
+          {text:"Hallo Sarah, vielen Dank für deine Nachricht bezüglich deines Geräts. Gemäß unseren Garantiebedingungen ist das Gerät durch eine 12-monatige eingeschränkte Garantie für Herstellungsfehler abgedeckt. Um das Garantieantragsverfahren einzuleiten, benötigen wir eine Dokumentation des Defekts einschließlich fotografischer Nachweise. Sobald die oben genannte Dokumentation eingereicht wurde, wird unsere technische Abteilung die Berechtigung Ihres Anspruchs gemäß der geltenden Garantierichtlinie prüfen. Bitte melde dich, wenn du Fragen hast.", clickable:true, improved:null, why:"Diese Nachricht sollte in klare Absätze mit einer Leerzeile zwischen jedem Abschnitt unterteilt werden. Jeder Absatz sollte sich auf einen Punkt konzentrieren. Vermeide außerdem Fachjargon wie 'Garantieantragsverfahren' und 'oben genannte Dokumentation' — schreibe einfach und klar."},
+          {text:"\n"},
+          {text:"Viele Grüße,\nSofia", clickable:true, improved:"Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH", why:"Beende die Nachricht immer mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
+        ]
+      }
+    ]
   },
-  {
-    title:"Scenario 3: Customer requesting a refund after returning an item",
-    emails:[
-      {level:'bad',preview:'Refund will be processed after item is received and inspected. This can take up to 14 business days...',full:'Refund will be processed after item is received and inspected. This can take up to 14 business days. No further action required from your side.'},
-      {level:'medium',preview:'Hello Michael, thank you for returning your item. We have received your return...',full:'Hello Michael, thank you for returning your item. We have received your return and are currently inspecting it. Once the inspection is complete we will process your refund. This can take a few business days. Let us know if you have any questions.\nKind regards, Sofia, TechSeller GmbH'},
-      {level:'good',preview:'Hello Michael,\n\nThank you for sending the item back to us and for your patience...',full:'Hello Michael,\n\nThank you for sending the item back to us and for your patience throughout this process.\n\nI\'m happy to let you know that we have received your return and our team is currently inspecting it.\n\nOnce the inspection is complete, your refund will be processed within 3 to 5 business days. You\'ll receive a confirmation email as soon as it\'s been issued.\n\nPlease let me know if you have any questions in the meantime, I\'m happy to help.\n\nHave a great rest of your week!\n\nKind regards,\nSofia\nTechSeller GmbH'}
-    ],
-    goodFeedback:'Correct! This message thanks the customer for their patience, gives a specific refund timeline, and tells them to expect a confirmation email.',
-    wrongFeedback:'Not quite. The best message acknowledges the effort of returning, gives a specific timeline, tells the customer what to expect next, and uses clear paragraph spacing.'
-  },
-  {
-    title:"Scenario 4: Customer complaining about wrong item received",
-    emails:[
-      {level:'bad',preview:'Please provide photos of the item received. We will investigate and respond accordingly...',full:'Please provide photos of the item received. We will investigate and respond accordingly. Do not return the item until further notice.'},
-      {level:'medium',preview:'Hello Emma, thank you for contacting us. We are sorry to hear you received the wrong item...',full:'Hello Emma, thank you for contacting us. We are sorry to hear you received the wrong item. Please send us photos of the item you received so we can look into this for you. We will get back to you as soon as possible.\nKind regards, Sofia, TechSeller GmbH'},
-      {level:'good',preview:'Hello Emma,\n\nThank you for getting in touch with us, and I sincerely apologize...',full:'Hello Emma,\n\nThank you for getting in touch with us, and I sincerely apologize for sending you the wrong item, I can imagine how disappointing that must be.\n\nTo help us resolve this as quickly as possible, could you send us a photo of the item you received? This will help us confirm the details and arrange the correct replacement for you right away.\n\nOnce we receive your photos, we\'ll get back to you within 24 hours with the next steps.\n\nI\'m sorry again for the inconvenience and thank you for your patience.\n\nKind regards,\nSofia\nTechSeller GmbH'}
-    ],
-    goodFeedback:'Correct! This message opens with a sincere apology, explains why the photo is needed, gives a 24-hour response commitment, and uses clear paragraph spacing.',
-    wrongFeedback:'Not quite. The best message apologizes sincerely, explains why the photo is needed, gives a clear timeline, and uses clear paragraph structure.'
-  },
-  {
-    title:"Scenario 5: Customer writing in German",
-    emails:[
-      {level:'bad',preview:'Dear customer, thank you for your message. Please note that our return policy requires items to be returned...',full:'Dear customer, thank you for your message. Please note that our return policy requires items to be returned within 14 days. Refunds are processed within 14 business days after receipt.'},
-      {level:'medium',preview:'Hallo Lukas, vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten...',full:'Hallo Lukas, vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten und werden sie so schnell wie möglich bearbeiten. Bitte sende uns weitere Informationen, damit wir dir helfen können.\nMit freundlichen Grüßen, Sofia, TechSeller GmbH'},
-      {level:'good',preview:'Hallo Lukas,\n\nvielen Dank, dass du dich an uns gewandt hast...',full:'Hallo Lukas,\n\nvielen Dank, dass du dich an uns gewandt hast, und danke für deine Geduld.\n\nEs tut mir leid zu hören, dass dein Gerät nicht mehr eingeschaltet werden kann, das ist wirklich ärgerlich und ich verstehe das gut.\n\nWir helfen dir gerne weiter. Damit wir das Problem so schnell wie möglich lösen können, würden wir dich bitten, uns kurz zu beschreiben, seit wann das Problem besteht und ob das Gerät zuvor schon einmal ähnliche Probleme hatte.\n\nSobald wir deine Antwort erhalten, melden wir uns innerhalb von 24 Stunden mit den nächsten Schritten bei dir.\n\nSchreib uns gerne, wenn du noch weitere Fragen hast, wir sind für dich da!\n\nViele Grüße,\nSofia\nTechSeller GmbH'}
-    ],
-    goodFeedback:'Correct! This message responds in German, shows genuine empathy, asks specific clarifying questions, gives a 24-hour commitment, and uses clear paragraph spacing.',
-    wrongFeedback:'Not quite. The best message responds in the customer\'s language, shows empathy, asks specific questions, and uses clear paragraph structure.'
+  it: {
+    instruction: "Clicca sulle parti dell'email che pensi debbano essere migliorate. Trova tutti i miglioramenti per continuare.",
+    reveal: "Mostra tutto",
+    next: "Avanti",
+    finish: "Termina",
+    improved: "Migliorato",
+    why: "Perché",
+    close: "Chiudi",
+    done_title: "Ottimo lavoro!",
+    done_text: "Hai completato tutti gli esempi di email. Tieni a mente queste linee guida ogni volta che scrivi a un cliente.",
+    restart: "Ricomincia",
+    scenarios: [
+      {
+        title: "Scenario 1: Richiesta di reso",
+        parts: [
+          {text:"Ciao Emma,", clickable:false},
+          {text:"\n"},
+          {text:"Abbiamo ricevuto il tuo messaggio e ci occuperemmo del problema. Il dispositivo dovrebbe essere idoneo per un reso, ma dovremmo prima verificarlo.", clickable:true, improved:"Grazie per averci contattato e per la tua pazienza. Siamo spiacenti di sapere che lo schermo del tuo iPhone ha smesso di funzionare, capiamo che sia davvero frustrante.", why:"Inizia sempre con un ringraziamento e una scusa esplicita prima di tutto il resto. Parole come 'ci occuperemmo', 'dovrebbe' e 'dovremmo' sono espressioni inaffidabili che creano incertezza — evitale."},
+          {text:"\n"},
+          {text:"Non possiamo elaborare il reso fino a quando non riceviamo l'articolo indietro.", clickable:true, improved:"Saremo felici di organizzare un reso e un'ispezione per te. Una volta che confermi di voler procedere, ti invieremo un'etichetta di reso prepagata entro 24 ore. Non appena riceveremo l'articolo, lo esamineremo e ti contatteremo con una soluzione.", why:"Concentrati su ciò che PUOI fare, non su ciò che non puoi. Le formulazioni negative frustrano i clienti."},
+          {text:"\n"},
+          {text:"Per qualsiasi domanda puoi contattarci.", clickable:true, improved:"Non esitare a contattarci se hai domande, siamo qui per aiutarti. Buon proseguimento di giornata!", why:"Concludi sempre con un saluto caloroso e un'offerta esplicita di ulteriore supporto. 'Puoi contattarci' è passivo e freddo."},
+          {text:"\n"},
+          {text:"Cordiali saluti,\nSofia\nTechSeller GmbH", clickable:false}
+        ]
+      },
+      {
+        title: "Scenario 2: Stato della consegna",
+        parts: [
+          {text:"Gentile Sig. Smith,", clickable:true, improved:"Ciao James,", why:"Rivolgiti sempre ai clienti con il loro nome di battesimo e in modo informale, a meno che non abbiano esplicitamente richiesto diversamente. 'Gentile Sig. Smith' è troppo formale per il tono di refurbed."},
+          {text:"\n"},
+          {text:"Grazie per il suo messaggio.", clickable:false},
+          {text:"\n"},
+          {text:"Abbiamo controllato il suo ordine e possiamo confermare che è attualmente in transito.", clickable:false},
+          {text:"La data di consegna stimata è entro i prossimi giorni.", clickable:true, improved:"In base alle informazioni di tracciamento, il tuo ordine dovrebbe arrivare entro giovedì 26 giugno.", why:"Sii specifico e fornisci una tempistica concreta. Espressioni vaghe come 'entro i prossimi giorni' non gestiscono bene le aspettative del cliente."},
+          {text:"Si prega di fare riferimento al link di tracciamento nella conferma dell'ordine per ulteriori aggiornamenti.", clickable:true, improved:"Puoi seguire gli ultimi aggiornamenti tramite il tuo link di tracciamento qui: [link di tracciamento]. Non esitare a contattarci se non è arrivato entro allora e approfondiremo la questione per te.", why:"Includi il link di tracciamento direttamente nel messaggio e offri proattivamente ulteriore assistenza."},
+          {text:"\n"},
+          {text:"Qualora necessitasse di ulteriore assistenza, non esiti a contattarci.", clickable:false},
+          {text:"\n"},
+          {text:"Distinti saluti,\nSofia", clickable:true, improved:"Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH", why:"Concludi sempre con un saluto caloroso prima della firma e assicurati che il nome dell'azienda sia incluso. 'Distinti saluti' è troppo formale per il tono di refurbed."}
+        ]
+      },
+      {
+        title: "Scenario 3: Rimborso dopo reso",
+        parts: [
+          {text:"Ciao Michael,", clickable:false},
+          {text:"\n"},
+          {text:"Grazie per aver restituito l'articolo e per la tua pazienza.", clickable:false},
+          {text:"\n"},
+          {text:"Siamo lieti di comunicarti che abbiamo ricevuto il tuo reso. Il nostro team analizzerà ora il ticket ed elaborerà il rimborso una volta completata l'ispezione.", clickable:true, improved:"Siamo lieti di comunicarti che abbiamo ricevuto il tuo reso e il nostro team lo sta attualmente ispezionando.", why:"Evita termini interni come 'ticket' — usa 'richiesta' al suo posto. Separa inoltre la conferma dai prossimi passi per maggiore chiarezza."},
+          {text:"\n"},
+          {text:"Facci sapere se hai domande.", clickable:true, improved:"Una volta completata l'ispezione, il tuo rimborso verrà elaborato entro 3-5 giorni lavorativi. Riceverai un'email di conferma non appena sarà stato emesso.\n\nNon esitare a contattarci nel frattempo, siamo qui per aiutarti. Buon proseguimento di settimana!", why:"Fornisci sempre una tempistica realistica e comunica al cliente cosa aspettarsi. Concludi con un saluto caloroso."},
+          {text:"\n"},
+          {text:"Cordiali saluti,\nSofia\nTechSeller GmbH", clickable:false}
+        ]
+      },
+      {
+        title: "Scenario 4: Articolo sbagliato ricevuto",
+        parts: [
+          {text:"Ciao David,", clickable:false},
+          {text:"\n"},
+          {text:"Abbiamo ricevuto la tua richiesta.", clickable:true, improved:"Grazie per averci contattato e ci scusiamo sinceramente per averti inviato l'articolo sbagliato, possiamo immaginare quanto deludente possa essere.", why:"Inizia sempre con un ringraziamento e una scusa esplicita. Non passare mai direttamente al problema senza prima riconoscere l'esperienza del cliente."},
+          {text:"\n"},
+          {text:"Per risolvere questo il prima possibile, ti preghiamo di inviare le foto dell'articolo direttamente alla nostra email returns@techseller.com in modo che il nostro team resi possa occuparsene.", clickable:true, improved:"Per aiutarci a risolvere questo il prima possibile, potresti inviarci una foto dell'articolo ricevuto? Questo ci aiuterà a confermare i dettagli e a organizzare subito la sostituzione corretta per te.", why:"Non chiedere mai ai clienti di contattarti fuori dal sistema di ticketing. refurbed non sarà in grado di supportare né il venditore né il cliente se le informazioni non sono visibili."},
+          {text:"\n"},
+          {text:"Una volta ricevute le tue foto, ti risponderemo entro 24 ore con i prossimi passi.", clickable:false},
+          {text:"\n"},
+          {text:"Cordiali saluti,\nSofia", clickable:true, improved:"Grazie per la tua pazienza. Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH", why:"Concludi sempre con un saluto caloroso e assicurati che il nome dell'azienda sia incluso nella firma."}
+        ]
+      },
+      {
+        title: "Scenario 5: Copertura della garanzia",
+        parts: [
+          {text:"Ciao Sarah, grazie per il tuo messaggio riguardo al tuo dispositivo. In base ai termini della garanzia, il dispositivo è coperto da una garanzia limitata di 12 mesi per difetti di fabbricazione. Per avviare la procedura di richiesta di garanzia, abbiamo bisogno della documentazione del difetto incluse prove fotografiche. Una volta presentata la suddetta documentazione, il nostro dipartimento tecnico valuterà l'idoneità della tua richiesta in conformità con la politica di garanzia applicabile. Facci sapere se hai domande.", clickable:true, improved:null, why:"Questo messaggio dovrebbe essere diviso in paragrafi chiari con una riga vuota tra ciascuno. Ogni paragrafo dovrebbe concentrarsi su un punto. Evita anche il gergo tecnico come 'procedura di richiesta di garanzia' e 'suddetta documentazione' — scrivi in modo semplice e chiaro."},
+          {text:"\n"},
+          {text:"Cordiali saluti,\nSofia", clickable:true, improved:"Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH", why:"Concludi sempre con un saluto caloroso e assicurati che il nome dell'azienda sia incluso nella firma."}
+        ]
+      }
+    ]
   }
-];
+};
 
-let currentLang='en',currentQ=0,answered=false,userAnswers=[],quizDone=false;
+let currentLang='en', currentQ=0, answered=false, userAnswers=[], quizDone=false;
 function getQuiz(){return QUIZZES[currentLang];}
 
-let exCurrent=0,exAnswered=false,exScore=0,exDone=false,exSelected={},shuffledOrders=[];
-
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function initShuffles(){shuffledOrders=SCENARIOS.map(()=>shuffle([0,1,2]));}
+let exCurrent=0, exDone=false, exFound={};
 
 function switchMainTab(tab){
   document.querySelectorAll('.main-tab').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
   document.querySelector('.main-tab[onclick="switchMainTab(\''+tab+'\')"]').classList.add('active');
   document.getElementById('tab-'+tab).classList.add('active');
-  if(tab==='examples')renderEx();
+  if(tab==='examples') renderEx();
 }
 
 function renderLangBar(){
@@ -291,76 +492,121 @@ function renderResults(){
 
 function selectAnswer(i){if(answered)return;answered=true;userAnswers[currentQ]=i;renderQuiz();}
 function nextQuestion(){const t=getQuiz().questions.length;if(currentQ<t-1){currentQ++;answered=false;renderQuiz();}else{quizDone=true;renderResults();}}
-function switchLang(l){currentLang=l;currentQ=0;answered=false;userAnswers=[];quizDone=false;renderQuiz();}
+function switchLang(l){
+  currentLang=l;
+  currentQ=0;answered=false;userAnswers=[];quizDone=false;
+  exCurrent=0;exDone=false;exFound={};
+  const activeTab=document.querySelector('.main-tab.active').getAttribute('onclick').includes('quiz')?'quiz':'examples';
+  if(activeTab==='quiz') renderQuiz();
+  else renderEx();
+}
 function restartQuiz(){currentQ=0;answered=false;userAnswers=[];quizDone=false;renderQuiz();}
 
+function getExData(){return EXAMPLES[currentLang];}
+
+function countClickable(parts){return parts.filter(p=>p.clickable).length;}
+function countFound(scenarioIdx){return Object.keys(exFound[scenarioIdx]||{}).length;}
+
 function renderEx(){
-  if(exDone){renderExResults();return;}
-  const s=SCENARIOS[exCurrent];
-  const order=shuffledOrders[exCurrent];
-  const total=SCENARIOS.length;
+  const data=getExData();
+  if(exDone){renderExDone();return;}
+  const scenario=data.scenarios[exCurrent];
+  const total=data.scenarios.length;
   const pct=Math.round((exCurrent/total)*100);
-  let html='<div class="ex-progress-bg"><div class="ex-progress-fill" style="width:'+pct+'%"></div></div>';
+  const totalClickable=countClickable(scenario.parts);
+  const foundCount=countFound(exCurrent);
+  const allFound=foundCount>=totalClickable;
+  const isLast=exCurrent===total-1;
+
+  let html='<div class="ex-wrap">';
+  html+=renderLangBar();
+  html+='<div class="ex-progress-bg"><div class="ex-progress-fill" style="width:'+pct+'%"></div></div>';
   html+='<div class="ex-counter">'+(exCurrent+1)+' / '+total+'</div>';
-  html+='<div class="ex-title">'+s.title+'</div>';
-  html+='<div class="ex-instruction">Which message is the best? Hover to read in full, then click to select.</div>';
-  html+='<div class="cards-row">';
-  order.forEach((emailIdx,colIdx)=>{
-    const e=s.emails[emailIdx];
-    let cls='email-card col-'+colIdx;
-    if(exAnswered){
-      if(e.level==='good')cls+=' reveal-correct';
-      else if(exSelected[exCurrent]===emailIdx)cls+=' selected-wrong';
-      cls+=' answered';
+  html+='<div class="ex-title">'+scenario.title+'</div>';
+  html+='<div class="ex-instruction">'+data.instruction+'</div>';
+  html+='<div class="email-shell">';
+  scenario.parts.forEach((part,idx)=>{
+    if(part.text==='\n'){html+='<span class="email-spacer"></span>';return;}
+    const isFound=(exFound[exCurrent]||{})[idx];
+    if(part.clickable){
+      html+='<span class="email-part'+(isFound?' found':'')+'" onclick="exClickPart('+exCurrent+','+idx+')">'+escHtml(part.text)+'</span>';
+    } else {
+      html+='<span class="email-part non-clickable">'+escHtml(part.text)+'</span>';
     }
-    html+='<div class="'+cls+'" onclick="exSelect('+emailIdx+')">';
-    html+='<div class="email-preview">'+e.preview+'</div>';
-    html+='<div class="email-expanded">'+e.full+'</div>';
-    html+='</div>';
   });
   html+='</div>';
-  html+='<div class="ex-feedback" id="ex-feedback"></div>';
-  html+='<div class="nav-row"><button class="ex-next-btn'+(exAnswered?' show':'')+'" id="ex-next" onclick="exNext()">'+(exCurrent===total-1?'See results':'Next')+' &#8594;</button></div>';
+  html+='<div class="ex-bottom-row">';
+  html+='<button class="reveal-btn" onclick="revealAll()">'+data.reveal+'</button>';
+  html+='<button class="ex-next-btn'+(allFound?' unlocked':'')+'" onclick="'+(allFound?'exNext()':'')+'">'+( isLast?data.finish:data.next)+' &#8594;</button>';
+  html+='</div>';
+  html+='</div>';
   document.getElementById('ex-app').innerHTML=html;
-  if(exAnswered){
-    const wasCorrect=s.emails[exSelected[exCurrent]].level==='good';
-    document.getElementById('ex-feedback').innerHTML='<div class="ex-feedback-msg '+(wasCorrect?'ok':'no')+'"><strong>'+(wasCorrect?'Correct!':'Not quite.')+'</strong> '+(wasCorrect?s.goodFeedback:s.wrongFeedback)+'</div>';
+}
+
+function escHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function exClickPart(scenarioIdx, partIdx){
+  const data=getExData();
+  const part=data.scenarios[scenarioIdx].parts[partIdx];
+  if(!part.clickable) return;
+  if(!exFound[scenarioIdx]) exFound[scenarioIdx]={};
+  exFound[scenarioIdx][partIdx]=true;
+
+  const improvedLabel=data.improved;
+  const whyLabel=data.why;
+  document.getElementById('popup-improved-label').textContent=improvedLabel+':';
+  const improvedEl=document.getElementById('popup-improved-text');
+  if(part.improved){
+    improvedEl.style.display='block';
+    improvedEl.textContent=part.improved;
+  } else {
+    improvedEl.style.display='none';
+  }
+  document.getElementById('popup-why-label').textContent=whyLabel+':';
+  document.getElementById('popup-why-text').textContent=part.why;
+  document.getElementById('popup-close').textContent=data.close;
+  document.getElementById('popup').classList.add('show');
+  renderEx();
+}
+
+function closePopup(e){
+  if(!e||e.target===document.getElementById('popup')){
+    document.getElementById('popup').classList.remove('show');
   }
 }
 
-function exSelect(emailIdx){
-  if(exAnswered)return;
-  exAnswered=true;
-  exSelected[exCurrent]=emailIdx;
-  if(SCENARIOS[exCurrent].emails[emailIdx].level==='good')exScore++;
+function revealAll(){
+  const data=getExData();
+  const scenario=data.scenarios[exCurrent];
+  if(!exFound[exCurrent]) exFound[exCurrent]={};
+  scenario.parts.forEach((part,idx)=>{
+    if(part.clickable) exFound[exCurrent][idx]=true;
+  });
   renderEx();
 }
 
 function exNext(){
-  if(exCurrent<SCENARIOS.length-1){exCurrent++;exAnswered=false;renderEx();}
-  else{exDone=true;renderExResults();}
+  const total=getExData().scenarios.length;
+  if(exCurrent<total-1){exCurrent++;renderEx();}
+  else{exDone=true;renderExDone();}
 }
 
-function renderExResults(){
-  const total=SCENARIOS.length;
-  const pct=Math.round((exScore/total)*100);
-  const pass=pct>=70;
-  let html='<div class="score-card"><div class="score-big">'+exScore+' / '+total+'</div><div class="score-label">'+pct+'%</div><div style="margin-top:10px"><span class="tag '+(pass?'tag-pass':'tag-fail')+'">'+(pass?'✓ Pass':'✗ Needs review')+'</span></div></div>';
-  html+='<div class="review-title">Review</div>';
-  SCENARIOS.forEach((s,i)=>{
-    const wasCorrect=s.emails[exSelected[i]].level==='good';
-    html+='<div class="ex-review-item '+(wasCorrect?'correct':'wrong')+'">';
-    html+='<div style="font-size:13px;font-weight:500;margin-bottom:4px;">'+s.title+'</div>';
-    html+='<div style="font-size:12px;color:'+(wasCorrect?'#3b6d11':'#a32d2d')+';">'+(wasCorrect?'✓ Correct':'✗ '+s.wrongFeedback)+'</div>';
-    html+='</div>';
-  });
-  html+='<button class="restart-btn" onclick="exRestart()">Try again</button>';
+function renderExDone(){
+  const data=getExData();
+  let html=renderLangBar();
+  html+='<div class="done-screen">';
+  html+='<div style="font-size:48px;margin-bottom:1rem;">✓</div>';
+  html+='<h2>'+data.done_title+'</h2>';
+  html+='<p>'+data.done_text+'</p>';
+  html+='<button class="restart-btn" onclick="exRestart()">'+data.restart+'</button>';
+  html+='</div>';
   document.getElementById('ex-app').innerHTML=html;
 }
 
-function exRestart(){exCurrent=0;exAnswered=false;exScore=0;exDone=false;exSelected={};initShuffles();renderEx();}
+function exRestart(){exCurrent=0;exDone=false;exFound={};renderEx();}
 
-initShuffles();
 renderQuiz();
 </script>
 </body>
