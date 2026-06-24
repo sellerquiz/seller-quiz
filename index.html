@@ -54,21 +54,30 @@
   .next-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; display: none; font-family: 'Readex Pro', sans-serif; }
   .next-btn.show { display: block; }
   .next-btn:hover { background: #f5f5f3; }
-  .score-card { background: #f5f5f3; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
+  .score-card { background: #f5f5f3; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
   .score-big { font-size: 40px; font-weight: 500; }
   .score-label { font-size: 13px; color: #666; margin-top: 4px; }
   .tag-pass { background: #eaf3de; color: #3b6d11; }
   .tag-fail { background: #fcebeb; color: #a32d2d; }
+  .cta-box { border-radius: 8px; padding: 12px 14px; margin-bottom: 1.25rem; font-size: 13px; line-height: 1.6; }
+  .cta-box.pass { background: #eeecf9; color: #332E80; border: 0.5px solid #332E80; }
+  .cta-box.fail { background: #fcebeb; color: #a32d2d; border: 0.5px solid #e24b4a; }
+  .cta-box a { color: inherit; font-weight: 500; }
   .review-title { font-size: 14px; font-weight: 500; margin-bottom: 10px; }
-  .review-item { border: 0.5px solid #e5e5e5; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; background: #fff; }
-  .review-q { font-size: 13px; font-weight: 500; margin-bottom: 6px; }
-  .review-row { font-size: 12px; margin-bottom: 3px; }
+  .review-item { border: 0.5px solid #e5e5e5; border-radius: 8px; margin-bottom: 8px; background: #fff; overflow: hidden; }
+  .review-item-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; cursor: pointer; font-size: 13px; }
+  .review-item-header:hover { background: #f5f5f3; }
+  .review-item-status { font-size: 12px; font-weight: 500; flex-shrink: 0; margin-left: 8px; }
+  .review-item-status.ok { color: #3b6d11; }
+  .review-item-status.no { color: #a32d2d; }
+  .review-item-body { padding: 0 14px 10px; border-top: 0.5px solid #e5e5e5; display: none; }
+  .review-item-body.open { display: block; }
+  .review-row { font-size: 12px; margin-bottom: 3px; margin-top: 8px; }
   .review-correct { color: #3b6d11; }
   .review-wrong { color: #a32d2d; }
   .review-explanation { font-size: 12px; color: #666; margin-top: 6px; padding-top: 6px; border-top: 0.5px solid #e5e5e5; line-height: 1.5; }
   .restart-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; margin-top: 1rem; font-family: 'Readex Pro', sans-serif; }
   .restart-btn:hover { background: #f5f5f3; }
-
   .ex-wrap { padding: 0.5rem 0; }
   .ex-progress-bg { height: 4px; background: #e5e5e5; border-radius: 2px; margin-bottom: 1.5rem; }
   .ex-progress-fill { height: 4px; background: #332E80; border-radius: 2px; transition: width 0.3s; }
@@ -79,14 +88,13 @@
   .email-part { display: block; padding: 3px 6px; border-radius: 4px; background: #f5f5f3; margin: 2px 0; cursor: pointer; transition: background 0.15s; position: relative; white-space: pre-line; }
   .email-part:hover { background: #eceae6; }
   .email-part.found { background: #eaf3de; color: #1a1a1a; }
-  .email-part.non-clickable { cursor: default; }
-  .email-part.non-clickable:hover { background: #f5f5f3; }
   .email-spacer { display: block; height: 10px; }
   .popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 100; align-items: center; justify-content: center; padding: 1rem; }
   .popup-overlay.show { display: flex; }
-  .popup-box { background: #fff; border-radius: 12px; padding: 1.5rem; max-width: 480px; width: 100%; border: 0.5px solid #e5e5e5; }
+  .popup-box { background: #fff; border-radius: 12px; padding: 1.5rem; max-width: 480px; width: 100%; border: 0.5px solid #e5e5e5; max-height: 80vh; overflow-y: auto; }
   .popup-improved-label { font-size: 11px; font-weight: 500; color: #3b6d11; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
   .popup-improved-text { font-size: 13px; color: #3b6d11; background: #eaf3de; border-radius: 8px; padding: 10px 12px; margin-bottom: 1rem; line-height: 1.7; white-space: pre-line; }
+  .popup-correct-text { font-size: 13px; color: #3b6d11; background: #eaf3de; border-radius: 8px; padding: 10px 12px; margin-bottom: 1rem; line-height: 1.7; display: none; }
   .popup-why-label { font-size: 11px; font-weight: 500; color: #332E80; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
   .popup-why-text { font-size: 13px; color: #1a1a1a; line-height: 1.6; margin-bottom: 1rem; }
   .popup-close { padding: 7px 18px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 13px; font-family: 'Readex Pro', sans-serif; }
@@ -117,7 +125,8 @@
 <div class="popup-overlay" id="popup" onclick="closePopup(event)">
   <div class="popup-box" onclick="event.stopPropagation()">
     <div class="popup-improved-label" id="popup-improved-label"></div>
-    <div class="popup-improved-text" id="popup-improved-text" style="display:none"></div>
+    <div class="popup-improved-text" id="popup-improved-text"></div>
+    <div class="popup-correct-text" id="popup-correct-text"></div>
     <div class="popup-why-label" id="popup-why-label"></div>
     <div class="popup-why-text" id="popup-why-text"></div>
     <button class="popup-close" id="popup-close" onclick="closePopup()">Close</button>
@@ -125,306 +134,280 @@
 </div>
 
 <script>
+const GUIDELINES_URL = 'https://app.notion.com/p/refurbed/Communication-Guidelines-55df3c6aebe14ba5bdd537992f822322';
+
 const QUIZZES = {
   en: {
-    lang:"English",next:"Next question",finish:"See results",restart:"Retake quiz",
-    correct_msg:"Correct!",wrong_msg:"Nicht ganz richtig.",score_label:"questions correct",
-    review_title:"Your answers",your_ans:"Your answer:",correct_ans:"Correct answer:",
+    lang:"English", next:"Next question", finish:"See results", restart:"Retake quiz",
+    correct_msg:"Correct!", wrong_msg:"Not quite.",
+    score_label:"questions correct",
+    review_title:"Your answers",
+    your_ans:"Your answer:", correct_ans:"Correct answer:",
+    cta_pass:"Great work! Keep these guidelines in mind every time you write to a customer.",
+    cta_fail:"We recommend reviewing the Communication Guidelines before retaking the quiz.",
+    cta_link:"Open Communication Guidelines",
     questions:[
-      {topic:"Friendly & empathic communication",q:"What should you always do at the start of a customer message?",opts:["Jump straight to the solution","Thank the customer and apologize for the inconvenience","Tell the customer you will contact the responsible department","Forward the case to refurbed immediately"],correct:1,explanation:"You should thank the customer for contacting you and explicitly apologize for the inconvenience they're reporting."},
-      {topic:"Friendly & empathic communication",q:"In which language should you respond to a customer?",opts:["Always in English","In your company's headquarter language","In the same language the customer used","In the most widely spoken market language"],correct:2,explanation:"Always use the same language the customer used to contact you."},
-      {topic:"Tone of voice",q:"What is the refurbed tone of voice archetype?",opts:["Formal and corporate","Everyman — informal and eye-level","Expert and authoritative","Neutral and impersonal"],correct:1,explanation:"The refurbed tone of voice follows an 'everyman' approach — informal, eye-level, confident and reassuring."},
-      {topic:"Tone of voice",q:"How should you normally address a customer?",opts:["By their surname, formally","By their first name, informally","With a generic 'Dear Customer'","By their order number"],correct:1,explanation:"Address customers as equals, by their first name and in an informal style — unless they explicitly request formal."},
-      {topic:"Tone of voice",q:"Once you switch to a formal tone, what must you do?",opts:["Switch back to informal after one message","Use formal only in the first message","Keep the formal tone consistent throughout","Ask the customer again each time"],correct:2,explanation:"Once the tone is switched to formal, it must be used consistently for the rest of the conversation."},
-      {topic:"Tone of voice",q:"Which type of language should you avoid?",opts:["Simple vocabulary","Technical jargon and complex vocabulary","Friendly greetings","Empathic expressions"],correct:1,explanation:"Avoid large vocabulary and technical jargon. Write with optimism and honesty instead."},
-      {topic:"Positive communication",q:"What should you focus on to stay positive?",opts:["Explaining what you cannot do","Redirecting to refurbed support","Emphasizing what you CAN do","Keeping the message as short as possible"],correct:2,explanation:"Stay positive by emphasizing what you CAN do, using reliable committed expressions, and de-escalating where possible."},
-      {topic:"Addressing the request",q:"When should you ask all clarifying questions?",opts:["After sending the initial solution","In your very first message","Only if the customer asks first","In a separate follow-up ticket"],correct:1,explanation:"Ask all clarifying questions in your first message to avoid long back-and-forth exchanges."},
-      {topic:"Addressing the request",q:"Why must you not move communication outside the ticketing system?",opts:["It's slower for the customer","refurbed can't support either party if info isn't visible","It creates extra work for the seller","It violates data privacy laws"],correct:1,explanation:"refurbed won't be able to support the seller or customer if the information is not visible to them."},
-      {topic:"Message structure",q:"What are the 6 elements of the recommended message formula?",opts:["Greeting, Opening, Problem summary, Options, Price, Signature","Introduction, Apology, Solution, Timeline, Disclaimer, Sign-off","Greeting, Opening, Explicit acknowledgement, Response/Solution, Final support offer, Farewell + Signature","Greeting, Order details, Explanation, Next steps, Signature"],correct:2,explanation:"The formula is: Greeting, Opening, Explicit acknowledgement, Response/Solution, Final offer for support, Farewell + Standard signature."}
+      {topic:"Opening a message", q:"A customer writes in to say their laptop arrived with a cracked screen. What is the best opening sentence?", opts:["We have received your message regarding the laptop.","Thank you for reaching out to us. We are sorry to hear your laptop arrived with a cracked screen, we can imagine how frustrating that must be.","Please send photos of the damage so we can assess the situation.","The laptop will need to be returned before we can process a replacement."], correct:1, explanation:"The opening should thank the customer and acknowledge the issue with empathy before anything else."},
+      {topic:"Language", q:"A customer writes to you in Dutch. What should you do?", opts:["Reply in English, as it is the standard business language","Reply in the language of your company's headquarters","Reply in Dutch, matching the customer's language","Ask the customer which language they prefer"], correct:2, explanation:"Always reply in the same language the customer used to contact you."},
+      {topic:"Addressing the customer", q:"A customer named James Walker contacts you. How should you address him?", opts:["Dear Mr. Walker,","Dear Customer,","Hello James,","Hi there,"], correct:2, explanation:"Always use the customer's first name and an informal tone, unless they explicitly request formal."},
+      {topic:"Positive language", q:"A customer asks if their item can be replaced. Which is the best response?", opts:["We cannot guarantee a replacement until the item has been inspected.","Replacements are only possible under certain conditions.","We would be happy to arrange a replacement for you once we have reviewed the item.","You may be eligible for a replacement depending on the outcome of the inspection."], correct:2, explanation:"Focus on what you CAN do, using committed and reliable language. Avoid 'cannot', 'only possible' and 'may be eligible'."},
+      {topic:"Tone of voice", q:"A customer requests to be addressed formally. What should you do?", opts:["Use formal tone in the first message only, then switch back to informal","Ask the customer again in the next message to confirm their preference","Switch to formal tone and keep it consistent for the rest of the conversation","Continue with informal tone as it is the refurbed standard"], correct:2, explanation:"Once the tone is switched to formal on the customer's request, it must stay formal consistently."},
+      {topic:"Clarifying questions", q:"A customer reports that their phone is not working but gives no further details. What should you do?", opts:["Ask for more details in a follow-up message after sending an initial response","Ask all clarifying questions in your first message to avoid long back-and-forth","Send a standard troubleshooting guide and wait for the customer to respond","Forward the case to refurbed support immediately"], correct:1, explanation:"Ask all clarifying questions in your first message to avoid unnecessary back-and-forth."},
+      {topic:"Zendesk", q:"A customer's device is not working and you need more information to resolve the issue. What should you do?", opts:["Ask the customer to send photos and videos to your company email so the process is faster","Ask the customer to contact you on WhatsApp for a quicker resolution","Ask for all the information you need directly within Zendesk, in your first message","Call the customer to get the details over the phone"], correct:2, explanation:"Always keep communication within Zendesk. Never ask customers to contact you outside of the system — on company email, WhatsApp, or any other channel. refurbed cannot support either party if the information is not visible to them."},
+      {topic:"Message structure", q:"Which of the following is the correct order for a customer service message?", opts:["Solution, Greeting, Apology, Farewell","Greeting, Opening, Explicit acknowledgement, Response/Solution, Final support offer, Farewell + Signature","Greeting, Problem summary, Options, Price, Signature","Opening, Apology, Timeline, Disclaimer, Sign-off"], correct:1, explanation:"The recommended formula is: Greeting, Opening, Explicit acknowledgement, Response/Solution, Final offer for support, Farewell + Signature."},
+      {topic:"Paragraph structure", q:"A customer receives this reply: 'Hello Anna, thank you for your message. We have received your return and our team is inspecting it. Your refund will be processed within 3 to 5 business days and you will receive a confirmation email. Please reach out if you have any questions. Have a great day! Kind regards, Sofia, TechSeller GmbH.' What is wrong with this message?", opts:["The tone is too informal","The signature is missing the company name","There are no empty lines between the paragraphs","Nothing — this message is correct"], correct:2, explanation:"Each paragraph should be separated by an empty line so the message is easy to follow."},
+      {topic:"Avoiding jargon", q:"A customer asks about the status of their case. Which response uses the best language?", opts:["Your ticket has been escalated to our technical department for further assessment.","Your request is currently being reviewed by our team and we will get back to you within 24 hours.","The aforementioned issue has been logged and will be processed in due course.","We have initiated the resolution procedure for your case."], correct:1, explanation:"Avoid internal technical terms like 'ticket' when writing to customers — use 'request' instead. Avoid vague expressions like 'in due course' and give a concrete timeline instead."},
+      {topic:"Farewell and signature", q:"Which of the following is the best way to close a customer message?", opts:["Yours sincerely, Sofia","Regards","Have a great rest of your day! Kind regards, Sofia, TechSeller GmbH","Thank you for your patience. We will be in touch."], correct:2, explanation:"Always end with a warm farewell phrase and include your full signature with your name and company name."},
+      {topic:"Reliable language", q:"A customer asks when their refund will arrive. Which is the best response?", opts:["Your refund should arrive within a few days.","We would expect the refund to be processed at some point next week.","Your refund will be processed within 3 to 5 business days and you will receive a confirmation email.","Refunds are typically issued after inspection but timelines may vary."], correct:2, explanation:"Use committed, reliable language and give a specific timeline. Avoid 'should', 'would expect' and 'may vary'."},
+      {topic:"De-escalation", q:"A customer writes in saying they are very frustrated and demands an immediate refund. What is the best approach?", opts:["Explain the refund policy in detail and list all the conditions that must be met","Apologise, acknowledge their frustration, and explain clearly what you can do and by when","Ask the customer to calm down before you can assist them","Forward the case to refurbed support immediately"], correct:1, explanation:"De-escalate by acknowledging the frustration with empathy, then focus on what you CAN do and give a clear timeline."},
+      {topic:"Explaining next steps", q:"After arranging a return, which closing paragraph is best?", opts:["We will be in touch once we have more information.","Please wait for further updates.","Once we receive the item, we will inspect it and get back to you within 3 business days with a solution. Feel free to reach out if you have any questions in the meantime.","The return is now in progress. No further action is needed from your side."], correct:2, explanation:"Always describe the next steps clearly, give a realistic timeline, and offer further support."},
+      {topic:"Spelling and grammar", q:"Why is it important to check your message for grammar and spelling errors before sending?", opts:["refurbed's system automatically corrects errors so it is not necessary","Errors make the message look unprofessional and can damage the customer's trust in the seller","Grammar errors only matter in formal messages","It is only important if the customer is a native speaker"], correct:1, explanation:"All messages should be free of grammar and spelling errors. Errors undermine professionalism and customer trust."}
     ]
   },
   de: {
-    lang:"Deutsch",next:"Nächste Frage",finish:"Ergebnisse anzeigen",restart:"Quiz wiederholen",
-    correct_msg:"Richtig!",wrong_msg:"Nicht ganz richtig.",score_label:"Fragen richtig beantwortet",
-    review_title:"Deine Antworten",your_ans:"Deine Antwort:",correct_ans:"Richtige Antwort:",
+    lang:"Deutsch", next:"Nächste Frage", finish:"Ergebnisse anzeigen", restart:"Quiz wiederholen",
+    correct_msg:"Richtig!", wrong_msg:"Nicht ganz richtig.",
+    score_label:"Fragen richtig beantwortet",
+    review_title:"Deine Antworten",
+    your_ans:"Deine Antwort:", correct_ans:"Richtige Antwort:",
+    cta_pass:"Gut gemacht! Denke bei jeder Nachricht an einen Kunden an diese Richtlinien.",
+    cta_fail:"Wir empfehlen, die Kommunikationsrichtlinien zu lesen, bevor du das Quiz wiederholst.",
+    cta_link:"Kommunikationsrichtlinien öffnen",
     questions:[
-      {topic:"Freundliche & empathische Kommunikation",q:"Was solltest du zu Beginn jeder Kundennachricht immer tun?",opts:["Direkt zur Lösung kommen","Dem Kunden danken und dich für die Unannehmlichkeiten entschuldigen","Dem Kunden mitteilen, dass du die zuständige Abteilung kontaktieren wirst","Den Fall sofort an refurbed weiterleiten"],correct:1,explanation:"Du solltest dem Kunden für die Kontaktaufnahme danken und dich ausdrücklich für die gemeldeten Unannehmlichkeiten entschuldigen."},
-      {topic:"Freundliche & empathische Kommunikation",q:"In welcher Sprache solltest du einem Kunden antworten?",opts:["Immer auf Englisch","In der Sprache des Firmensitzes","In der Sprache, in der der Kunde dich kontaktiert hat","In der meistgesprochenen Sprache des Marktes"],correct:2,explanation:"Verwende immer dieselbe Sprache, in der der Kunde dich kontaktiert hat."},
-      {topic:"Tonalität",q:"Was ist der Tonalitäts-Archetyp von refurbed?",opts:["Formell und unternehmerisch","Everyman – informell und auf Augenhöhe","Expertenhaft und autoritär","Neutral und unpersönlich"],correct:1,explanation:"Die refurbed Tonalität folgt einem 'Everyman'-Ansatz – informell, auf Augenhöhe, selbstbewusst und beruhigend für Kunden."},
-      {topic:"Tonalität",q:"Wie solltest du einen Kunden normalerweise ansprechen?",opts:["Mit Nachnamen und formell","Mit Vornamen und informell","Mit einer allgemeinen Anrede wie 'Sehr geehrter Kunde'","Mit der Bestellnummer"],correct:1,explanation:"Kunden werden als Gleichgestellte mit Vornamen und informell angesprochen – außer der Kunde wünscht ausdrücklich Formalität."},
-      {topic:"Tonalität",q:"Was musst du tun, wenn du zum formellen Ton wechselst?",opts:["Nach einer Nachricht wieder zum informellen Ton wechseln","Den formellen Ton nur in der ersten Nachricht verwenden","Den formellen Ton konsequent beibehalten","Den Kunden jedes Mal erneut fragen"],correct:2,explanation:"Sobald der formelle Ton eingeführt wurde, muss er konsequent für das gesamte Gespräch verwendet werden."},
-      {topic:"Tonalität",q:"Welche Art von Sprache solltest du vermeiden?",opts:["Einfache Sprache","Fachjargon und komplexes Vokabular","Freundliche Begrüßungen","Empathische Ausdrücke"],correct:1,explanation:"Vermeide umfangreiches Vokabular und Fachjargon. Schreibe stattdessen optimistisch und ehrlich."},
-      {topic:"Positive Kommunikation",q:"Worauf solltest du dich konzentrieren, um positiv zu bleiben?",opts:["Erklären, was du nicht tun kannst","Den Kunden an refurbed weiterleiten","Betonen, was du TUN KANNST","Die Nachricht so kurz wie möglich halten"],correct:2,explanation:"Bleibe positiv, indem du betonst, was du TUN KANNST, zuverlässige Ausdrücke verwendest und deeskalierst."},
-      {topic:"Auf Anfragen eingehen",q:"Wann solltest du alle Rückfragen stellen?",opts:["Nach dem Senden der ersten Lösung","In deiner allerersten Nachricht","Nur wenn der Kunde zuerst darum bittet","In einem separaten Folge-Ticket"],correct:1,explanation:"Alle Rückfragen sollten in der ersten Nachricht gestellt werden, um lange Hin-und-Her-Kommunikation zu vermeiden."},
-      {topic:"Auf Anfragen eingehen",q:"Warum darf die Kommunikation nicht außerhalb des Ticketsystems stattfinden?",opts:["Es ist langsamer für den Kunden","refurbed kann nicht helfen, wenn die Infos nicht sichtbar sind","Es erzeugt mehr Arbeit für den Verkäufer","Es verstößt gegen Datenschutzgesetze"],correct:1,explanation:"refurbed kann den Verkäufer oder Kunden nicht unterstützen, wenn die Informationen nicht sichtbar sind."},
-      {topic:"Nachrichtenstruktur",q:"Was sind die 6 Elemente der empfohlenen Nachrichtenformel?",opts:["Begrüßung, Eröffnung, Problemzusammenfassung, Optionen, Preis, Unterschrift","Einleitung, Entschuldigung, Lösung, Zeitplan, Haftungsausschluss, Abschluss","Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Unterschrift","Begrüßung, Bestelldetails, Erklärung, Nächste Schritte, Unterschrift"],correct:2,explanation:"Die Formel lautet: Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Standardunterschrift."}
+      {topic:"Beginn einer Nachricht", q:"Ein Kunde schreibt, dass sein Laptop mit einem gebrochenen Bildschirm angekommen ist. Was ist der beste Eröffnungssatz?", opts:["Wir haben Ihre Nachricht bezüglich des Laptops erhalten.","Vielen Dank, dass du dich an uns gewandt hast. Es tut uns leid zu hören, dass dein Laptop mit einem gebrochenen Bildschirm angekommen ist, wir können uns vorstellen, wie frustrierend das sein muss.","Bitte sende uns Fotos des Schadens, damit wir die Situation beurteilen können.","Der Laptop muss zurückgeschickt werden, bevor wir einen Ersatz bearbeiten können."], correct:1, explanation:"Die Eröffnung sollte dem Kunden danken und das Problem mit Empathie anerkennen, bevor etwas anderes gesagt wird."},
+      {topic:"Sprache", q:"Ein Kunde schreibt dir auf Niederländisch. Was solltest du tun?", opts:["Auf Englisch antworten, da es die Standard-Geschäftssprache ist","In der Sprache des Firmensitzes antworten","Auf Niederländisch antworten, der Sprache des Kunden","Den Kunden fragen, welche Sprache er bevorzugt"], correct:2, explanation:"Antworte immer in der Sprache, in der der Kunde dich kontaktiert hat."},
+      {topic:"Kundenansprache", q:"Ein Kunde namens Thomas Müller kontaktiert dich. Wie solltest du ihn ansprechen?", opts:["Sehr geehrter Herr Müller,","Sehr geehrter Kunde,","Hallo Thomas,","Hallo,"], correct:2, explanation:"Verwende immer den Vornamen des Kunden und einen informellen Ton, es sei denn, der Kunde wünscht ausdrücklich eine formelle Ansprache."},
+      {topic:"Positive Sprache", q:"Ein Kunde fragt, ob sein Artikel ersetzt werden kann. Was ist die beste Antwort?", opts:["Wir können einen Ersatz erst garantieren, nachdem der Artikel inspiziert wurde.","Ersatz ist nur unter bestimmten Bedingungen möglich.","Wir helfen dir gerne dabei, einen Ersatz zu arrangieren, nachdem wir den Artikel geprüft haben.","Du könntest je nach Ergebnis der Inspektion Anspruch auf einen Ersatz haben."], correct:2, explanation:"Konzentriere dich auf das, was du TUN KANNST, mit zuverlässiger und verbindlicher Sprache. Vermeide 'können nicht', 'nur möglich' und 'könntest Anspruch haben'."},
+      {topic:"Tonalität", q:"Ein Kunde bittet darum, formell angesprochen zu werden. Was solltest du tun?", opts:["Den formellen Ton nur in der ersten Nachricht verwenden, dann zurück zum informellen wechseln","Den Kunden in der nächsten Nachricht erneut nach seiner Präferenz fragen","Zum formellen Ton wechseln und ihn konsequent für den Rest des Gesprächs beibehalten","Den informellen Ton beibehalten, da es der refurbed-Standard ist"], correct:2, explanation:"Sobald auf Wunsch des Kunden zum formellen Ton gewechselt wird, muss dieser konsequent beibehalten werden."},
+      {topic:"Rückfragen", q:"Ein Kunde meldet, dass sein Telefon nicht funktioniert, gibt aber keine weiteren Details an. Was solltest du tun?", opts:["In einer Folgenachricht nach weiteren Details fragen, nachdem eine erste Antwort gesendet wurde","Alle Rückfragen in deiner ersten Nachricht stellen, um lange Hin-und-Her-Kommunikation zu vermeiden","Einen Standard-Leitfaden zur Fehlerbehebung senden und auf die Antwort des Kunden warten","Den Fall sofort an den refurbed Support weiterleiten"], correct:1, explanation:"Stelle alle Rückfragen in deiner ersten Nachricht, um unnötiges Hin und Her zu vermeiden."},
+      {topic:"Zendesk", q:"Das Gerät eines Kunden funktioniert nicht und du benötigst weitere Informationen. Was solltest du tun?", opts:["Den Kunden bitten, Fotos und Videos an deine Firmen-E-Mail zu senden, damit es schneller geht","Den Kunden bitten, dich über WhatsApp zu kontaktieren","Alle benötigten Informationen direkt in Zendesk anfragen, in deiner ersten Nachricht","Den Kunden anrufen, um die Details telefonisch zu erhalten"], correct:2, explanation:"Halte die gesamte Kommunikation immer in Zendesk. Bitte Kunden niemals, dich außerhalb des Systems zu kontaktieren — per Firmen-E-Mail, WhatsApp oder einem anderen Kanal. refurbed kann weder den Verkäufer noch den Kunden unterstützen, wenn die Informationen nicht sichtbar sind."},
+      {topic:"Nachrichtenstruktur", q:"Was ist die richtige Reihenfolge für eine Kundenservicenachricht?", opts:["Lösung, Begrüßung, Entschuldigung, Verabschiedung","Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Unterschrift","Begrüßung, Problemzusammenfassung, Optionen, Preis, Unterschrift","Eröffnung, Entschuldigung, Zeitplan, Haftungsausschluss, Abschluss"], correct:1, explanation:"Die empfohlene Formel lautet: Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Unterschrift."},
+      {topic:"Absatzstruktur", q:"Ein Kunde erhält diese Antwort: 'Hallo Anna, vielen Dank für deine Nachricht. Wir haben deine Rücksendung erhalten und unser Team prüft sie. Deine Rückerstattung wird innerhalb von 3 bis 5 Werktagen bearbeitet und du erhältst eine Bestätigungs-E-Mail. Bitte melde dich bei Fragen. Schönen Tag noch! Viele Grüße, Sofia, TechSeller GmbH.' Was stimmt mit dieser Nachricht nicht?", opts:["Der Ton ist zu informell","Die Unterschrift fehlt den Firmennamen","Es gibt keine Leerzeilen zwischen den Absätzen","Nichts — diese Nachricht ist korrekt"], correct:2, explanation:"Jeder Absatz sollte durch eine Leerzeile getrennt sein, damit die Nachricht leicht zu lesen ist."},
+      {topic:"Fachjargon vermeiden", q:"Ein Kunde fragt nach dem Status seines Falls. Welche Antwort verwendet die beste Sprache?", opts:["Ihr Ticket wurde an unsere technische Abteilung zur weiteren Beurteilung weitergeleitet.","Deine Anfrage wird derzeit von unserem Team geprüft und wir melden uns innerhalb von 24 Stunden bei dir.","Das oben genannte Problem wurde protokolliert und wird zu gegebener Zeit bearbeitet.","Wir haben das Lösungsverfahren für deinen Fall eingeleitet."], correct:1, explanation:"Vermeide interne Begriffe wie 'Ticket' — verwende stattdessen 'Anfrage'. Vermeide vage Ausdrücke wie 'zu gegebener Zeit' und gib stattdessen einen konkreten Zeitrahmen an."},
+      {topic:"Verabschiedung und Unterschrift", q:"Was ist die beste Art, eine Kundennachricht zu beenden?", opts:["Mit freundlichen Grüßen, Sofia","Grüße","Schönen Rest des Tages! Viele Grüße, Sofia, TechSeller GmbH","Danke für deine Geduld. Wir melden uns."], correct:2, explanation:"Beende immer mit einer warmen Verabschiedung und füge deine vollständige Unterschrift mit deinem Namen und dem Firmennamen ein."},
+      {topic:"Zuverlässige Sprache", q:"Ein Kunde fragt, wann seine Rückerstattung ankommt. Was ist die beste Antwort?", opts:["Deine Rückerstattung sollte innerhalb weniger Tage ankommen.","Wir würden erwarten, dass die Rückerstattung irgendwann nächste Woche bearbeitet wird.","Deine Rückerstattung wird innerhalb von 3 bis 5 Werktagen bearbeitet und du erhältst eine Bestätigungs-E-Mail.","Rückerstattungen werden in der Regel nach der Inspektion ausgestellt, aber die Zeitrahmen können variieren."], correct:2, explanation:"Verwende verbindliche, zuverlässige Sprache und gib einen konkreten Zeitrahmen an. Vermeide 'sollte', 'würden erwarten' und 'können variieren'."},
+      {topic:"Deeskalation", q:"Ein Kunde schreibt, dass er sehr frustriert ist und eine sofortige Rückerstattung verlangt. Was ist der beste Ansatz?", opts:["Die Rückerstattungsrichtlinie im Detail erklären und alle Bedingungen auflisten","Sich entschuldigen, die Frustration anerkennen und klar erklären, was getan werden kann und bis wann","Den Kunden bitten, sich zu beruhigen, bevor geholfen werden kann","Den Fall sofort an den refurbed Support weiterleiten"], correct:1, explanation:"Deeskaliere, indem du die Frustration mit Empathie anerkennst, und konzentriere dich dann auf das, was du TUN KANNST, mit einem klaren Zeitrahmen."},
+      {topic:"Nächste Schritte erklären", q:"Nach der Vereinbarung einer Rücksendung — welcher Abschlussabsatz ist am besten?", opts:["Wir melden uns, sobald wir weitere Informationen haben.","Bitte warte auf weitere Updates.","Sobald wir den Artikel erhalten haben, werden wir ihn prüfen und uns innerhalb von 3 Werktagen mit einer Lösung bei dir melden. Melde dich gerne, wenn du in der Zwischenzeit Fragen hast.","Die Rücksendung ist nun in Bearbeitung. Es sind keine weiteren Maßnahmen deinerseits erforderlich."], correct:2, explanation:"Beschreibe die nächsten Schritte immer klar, gib einen realistischen Zeitrahmen an und biete weitere Unterstützung an."},
+      {topic:"Rechtschreibung und Grammatik", q:"Warum ist es wichtig, eine Nachricht vor dem Senden auf Grammatik- und Rechtschreibfehler zu prüfen?", opts:["Das System von refurbed korrigiert Fehler automatisch, daher ist es nicht notwendig","Fehler lassen die Nachricht unprofessionell wirken und können das Vertrauen des Kunden in den Verkäufer beschädigen","Grammatikfehler sind nur bei formellen Nachrichten wichtig","Es ist nur wichtig, wenn der Kunde ein Muttersprachler ist"], correct:1, explanation:"Alle Nachrichten sollten frei von Grammatik- und Rechtschreibfehlern sein. Fehler untergraben die Professionalität und das Kundenvertrauen."}
     ]
   },
   it: {
-    lang:"Italiano",next:"Prossima domanda",finish:"Vedi risultati",restart:"Rifai il quiz",
-    correct_msg:"Corretto!",wrong_msg:"Non esatto.",score_label:"domande corrette",
-    review_title:"Le tue risposte",your_ans:"La tua risposta:",correct_ans:"Risposta corretta:",
+    lang:"Italiano", next:"Prossima domanda", finish:"Vedi risultati", restart:"Rifai il quiz",
+    correct_msg:"Corretto!", wrong_msg:"Non esatto.",
+    score_label:"domande corrette",
+    review_title:"Le tue risposte",
+    your_ans:"La tua risposta:", correct_ans:"Risposta corretta:",
+    cta_pass:"Ottimo lavoro! Tieni a mente queste linee guida ogni volta che scrivi a un cliente.",
+    cta_fail:"Ti consigliamo di rivedere le Linee Guida di Comunicazione prima di ripetere il quiz.",
+    cta_link:"Apri le Linee Guida di Comunicazione",
     questions:[
-      {topic:"Comunicazione amichevole ed empatica",q:"Cosa dovresti sempre fare all'inizio di ogni messaggio al cliente?",opts:["Passare direttamente alla soluzione","Ringraziare il cliente e scusarsi per il disagio","Dire al cliente che contatterai il reparto responsabile","Trasferire il caso a refurbed immediatamente"],correct:1,explanation:"Devi ringraziare il cliente per averti contattato e scusarti esplicitamente per il disagio segnalato."},
-      {topic:"Comunicazione amichevole ed empatica",q:"In quale lingua dovresti rispondere a un cliente?",opts:["Sempre in inglese","Nella lingua della sede aziendale","Nella stessa lingua usata dal cliente","Nella lingua più parlata nel mercato"],correct:2,explanation:"Usa sempre la stessa lingua in cui il cliente ti ha contattato."},
-      {topic:"Tono di voce",q:"Qual è l'archetipo del tono di voce di refurbed?",opts:["Formale e aziendale","Everyman – informale e alla pari","Esperto e autorevole","Neutro e impersonale"],correct:1,explanation:"Il tono di voce di refurbed segue un approccio 'everyman' – informale, alla pari, sicuro e rassicurante per i clienti."},
-      {topic:"Tono di voce",q:"Come dovresti normalmente rivolgerti a un cliente?",opts:["Con il cognome e formalmente","Con il nome di battesimo e informalmente","Con un generico 'Gentile Cliente'","Con il numero d'ordine"],correct:1,explanation:"Rivolgiti ai clienti come pari, con il loro nome di battesimo e in stile informale, a meno che non richiedano il formale."},
-      {topic:"Tono di voce",q:"Una volta passato al tono formale, cosa devi fare?",opts:["Tornare all'informale dopo un messaggio","Usare il formale solo nel primo messaggio","Mantenere il tono formale in modo coerente","Chiedere nuovamente al cliente ogni volta"],correct:2,explanation:"Una volta introdotto il tono formale, deve essere usato in modo coerente per tutta la conversazione."},
-      {topic:"Tono di voce",q:"Quale tipo di linguaggio dovresti evitare?",opts:["Linguaggio semplice","Gergo tecnico e vocabolario complesso","Saluti amichevoli","Espressioni empatiche"],correct:1,explanation:"Evita vocabolario eccessivo e gergo tecnico. Scrivi invece con ottimismo e onestà."},
-      {topic:"Comunicazione positiva",q:"Su cosa dovresti concentrarti per mantenere un tono positivo?",opts:["Spiegare cosa non puoi fare","Reindirizzare il cliente a refurbed","Sottolineare ciò che PUOI fare","Mantenere il messaggio il più breve possibile"],correct:2,explanation:"Mantieni un tono positivo concentrandoti su ciò che PUOI fare, usando espressioni affidabili e de-escalando dove possibile."},
-      {topic:"Gestione delle richieste",q:"Quando dovresti porre tutte le domande di chiarimento?",opts:["Dopo aver inviato la prima soluzione","Nel tuo primo messaggio","Solo se il cliente lo chiede prima","In un ticket di follow-up separato"],correct:1,explanation:"Poni tutte le domande di chiarimento nel primo messaggio per evitare lunghi scambi."},
-      {topic:"Gestione delle richieste",q:"Perché non devi spostare la comunicazione fuori dal sistema di ticketing?",opts:["È più lento per il cliente","refurbed non può supportare nessuno se le info non sono visibili","Crea lavoro extra per il venditore","Va contro le leggi sulla privacy"],correct:1,explanation:"refurbed non può supportare il venditore o il cliente se le informazioni non sono visibili."},
-      {topic:"Struttura del messaggio",q:"Quali sono i 6 elementi della formula di messaggio consigliata?",opts:["Saluto, Apertura, Riepilogo problema, Opzioni, Prezzo, Firma","Introduzione, Scuse, Soluzione, Tempistiche, Disclaimer, Chiusura","Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta supporto finale, Congedo + Firma","Saluto, Dettagli ordine, Spiegazione, Prossimi passi, Firma"],correct:2,explanation:"La formula è: Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta finale di supporto, Congedo + Firma standard."}
+      {topic:"Apertura di un messaggio", q:"Un cliente scrive per dire che il suo laptop è arrivato con lo schermo rotto. Qual è la migliore frase di apertura?", opts:["Abbiamo ricevuto il tuo messaggio riguardo al laptop.","Grazie per averci contattato. Siamo spiacenti di sapere che il tuo laptop è arrivato con lo schermo rotto, possiamo immaginare quanto sia frustrante.","Ti preghiamo di inviare foto del danno in modo da poter valutare la situazione.","Il laptop dovrà essere restituito prima che possiamo elaborare una sostituzione."], correct:1, explanation:"L'apertura dovrebbe ringraziare il cliente e riconoscere il problema con empatia prima di qualsiasi altra cosa."},
+      {topic:"Lingua", q:"Un cliente ti scrive in olandese. Cosa dovresti fare?", opts:["Rispondere in inglese, in quanto è la lingua commerciale standard","Rispondere nella lingua della sede aziendale","Rispondere in olandese, la lingua del cliente","Chiedere al cliente quale lingua preferisce"], correct:2, explanation:"Rispondi sempre nella stessa lingua usata dal cliente per contattarti."},
+      {topic:"Come rivolgersi al cliente", q:"Un cliente di nome Marco Rossi ti contatta. Come dovresti rivolgerti a lui?", opts:["Gentile Sig. Rossi,","Gentile Cliente,","Ciao Marco,","Salve,"], correct:2, explanation:"Usa sempre il nome di battesimo del cliente e un tono informale, a meno che non richiedano esplicitamente il formale."},
+      {topic:"Linguaggio positivo", q:"Un cliente chiede se il suo articolo può essere sostituito. Qual è la risposta migliore?", opts:["Non possiamo garantire una sostituzione fino a quando l'articolo non è stato ispezionato.","Le sostituzioni sono possibili solo in determinate condizioni.","Saremo felici di organizzare una sostituzione per te una volta esaminato l'articolo.","Potresti avere diritto a una sostituzione a seconda del risultato dell'ispezione."], correct:2, explanation:"Concentrati su ciò che PUOI fare, usando un linguaggio affidabile e impegnato. Evita 'non possiamo', 'solo in determinate condizioni' e 'potresti avere diritto'."},
+      {topic:"Tono di voce", q:"Un cliente chiede di essere trattato formalmente. Cosa dovresti fare?", opts:["Usare il tono formale solo nel primo messaggio, poi tornare all'informale","Chiedere nuovamente al cliente nel prossimo messaggio per confermare la sua preferenza","Passare al tono formale e mantenerlo coerentemente per il resto della conversazione","Continuare con il tono informale poiché è lo standard di refurbed"], correct:2, explanation:"Una volta passato al tono formale su richiesta del cliente, deve essere mantenuto coerentemente."},
+      {topic:"Domande di chiarimento", q:"Un cliente segnala che il suo telefono non funziona ma non fornisce ulteriori dettagli. Cosa dovresti fare?", opts:["Chiedere ulteriori dettagli in un messaggio di follow-up dopo aver inviato una risposta iniziale","Porre tutte le domande di chiarimento nel tuo primo messaggio per evitare lunghi scambi","Inviare una guida standard per la risoluzione dei problemi e attendere la risposta del cliente","Trasferire il caso al supporto refurbed immediatamente"], correct:1, explanation:"Poni tutte le domande di chiarimento nel tuo primo messaggio per evitare inutili scambi."},
+      {topic:"Zendesk", q:"Il dispositivo di un cliente non funziona e hai bisogno di ulteriori informazioni. Cosa dovresti fare?", opts:["Chiedere al cliente di inviare foto e video alla tua email aziendale per velocizzare il processo","Chiedere al cliente di contattarti su WhatsApp per una risoluzione più rapida","Chiedere tutte le informazioni necessarie direttamente in Zendesk, nel tuo primo messaggio","Chiamare il cliente per ottenere i dettagli per telefono"], correct:2, explanation:"Mantieni sempre tutta la comunicazione in Zendesk. Non chiedere mai ai clienti di contattarti fuori dal sistema — tramite email aziendale, WhatsApp o qualsiasi altro canale. refurbed non sarà in grado di supportare né il venditore né il cliente se le informazioni non sono visibili."},
+      {topic:"Struttura del messaggio", q:"Qual è l'ordine corretto per un messaggio di assistenza clienti?", opts:["Soluzione, Saluto, Scuse, Congedo","Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta finale di supporto, Congedo + Firma","Saluto, Riepilogo problema, Opzioni, Prezzo, Firma","Apertura, Scuse, Tempistiche, Disclaimer, Chiusura"], correct:1, explanation:"La formula consigliata è: Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta finale di supporto, Congedo + Firma."},
+      {topic:"Struttura dei paragrafi", q:"Un cliente riceve questa risposta: 'Ciao Anna, grazie per il tuo messaggio. Abbiamo ricevuto il tuo reso e il nostro team lo sta ispezionando. Il tuo rimborso verrà elaborato entro 3-5 giorni lavorativi e riceverai un'email di conferma. Contattaci se hai domande. Buona giornata! Cordiali saluti, Sofia, TechSeller GmbH.' Cosa c'è di sbagliato in questo messaggio?", opts:["Il tono è troppo informale","La firma è priva del nome dell'azienda","Non ci sono righe vuote tra i paragrafi","Niente — questo messaggio è corretto"], correct:2, explanation:"Ogni paragrafo dovrebbe essere separato da una riga vuota in modo che il messaggio sia facile da seguire."},
+      {topic:"Evitare il gergo", q:"Un cliente chiede informazioni sullo stato del suo caso. Quale risposta usa il linguaggio migliore?", opts:["Il suo ticket è stato inoltrato al nostro reparto tecnico per ulteriori valutazioni.","La tua richiesta è attualmente in fase di revisione da parte del nostro team e ti risponderemo entro 24 ore.","Il suddetto problema è stato registrato e verrà elaborato a tempo debito.","Abbiamo avviato la procedura di risoluzione per il tuo caso."], correct:1, explanation:"Evita termini tecnici interni come 'ticket' quando scrivi ai clienti — usa 'richiesta' al suo posto. Evita espressioni vaghe come 'a tempo debito' e fornisci invece una tempistica concreta."},
+      {topic:"Congedo e firma", q:"Qual è il modo migliore per concludere un messaggio al cliente?", opts:["Distinti saluti, Sofia","Saluti","Buon proseguimento di giornata! Cordiali saluti, Sofia, TechSeller GmbH","Grazie per la tua pazienza. Ci faremo vivi."], correct:2, explanation:"Concludi sempre con una frase di congedo calorosa e includi la tua firma completa con il tuo nome e il nome dell'azienda."},
+      {topic:"Linguaggio affidabile", q:"Un cliente chiede quando arriverà il suo rimborso. Qual è la risposta migliore?", opts:["Il tuo rimborso dovrebbe arrivare entro qualche giorno.","Ci aspettiamo che il rimborso venga elaborato la prossima settimana.","Il tuo rimborso verrà elaborato entro 3-5 giorni lavorativi e riceverai un'email di conferma.","I rimborsi vengono solitamente emessi dopo l'ispezione ma i tempi possono variare."], correct:2, explanation:"Usa un linguaggio affidabile e impegnato e fornisci una tempistica specifica. Evita 'dovrebbe', 'ci aspettiamo' e 'possono variare'."},
+      {topic:"De-escalation", q:"Un cliente scrive dicendo di essere molto frustrato e chiede un rimborso immediato. Qual è l'approccio migliore?", opts:["Spiegare in dettaglio la politica di rimborso ed elencare tutte le condizioni","Scusarsi, riconoscere la frustrazione e spiegare chiaramente cosa si può fare e entro quando","Chiedere al cliente di calmarsi prima di poterlo assistere","Trasferire il caso al supporto refurbed immediatamente"], correct:1, explanation:"De-escalate riconoscendo la frustrazione con empatia, poi concentrati su ciò che PUOI fare e fornisci una tempistica chiara."},
+      {topic:"Spiegare i prossimi passi", q:"Dopo aver organizzato un reso, qual è il paragrafo di chiusura migliore?", opts:["Ci faremo vivi non appena avremo ulteriori informazioni.","Ti preghiamo di attendere ulteriori aggiornamenti.","Una volta ricevuto l'articolo, lo ispezioneremo e ti risponderemo entro 3 giorni lavorativi con una soluzione. Non esitare a contattarci se hai domande nel frattempo.","Il reso è ora in corso. Non sono necessarie ulteriori azioni da parte tua."], correct:2, explanation:"Descrivi sempre i prossimi passi chiaramente, fornisci una tempistica realistica e offri ulteriore supporto."},
+      {topic:"Ortografia e grammatica", q:"Perché è importante controllare i propri messaggi per errori grammaticali e ortografici prima di inviarli?", opts:["Il sistema di refurbed corregge automaticamente gli errori quindi non è necessario","Gli errori rendono il messaggio poco professionale e possono danneggiare la fiducia del cliente nel venditore","Gli errori grammaticali sono importanti solo nei messaggi formali","È importante solo se il cliente è di madrelingua"], correct:1, explanation:"Tutti i messaggi dovrebbero essere privi di errori grammaticali e ortografici. Gli errori minano la professionalità e la fiducia del cliente."}
     ]
   }
 };
 
 const EXAMPLES = {
   en: {
-    instruction: "Click on the parts of the email you think need improving. Find all improvements to continue.",
-    reveal: "Reveal all",
-    next: "Next",
-    finish: "Finish",
-    improved: "Improved",
-    why: "Why",
-    close: "Close",
-    done_title: "Well done!",
-    done_text: "You've worked through all the email examples. Keep these guidelines in mind every time you write to a customer.",
-    restart: "Start again",
-    scenarios: [
-      {
-        title: "Scenario 1: Return request",
-        parts: [
-          {text:"Hello Emma,", clickable:false},
-          {text:"\n"},
-          {text:"We have received your message and would look into the issue. The device should be eligible for a return, but we would need to verify this first.", clickable:true, improved:"Thank you for reaching out to us and for your patience. We are sorry to hear that the screen on your iPhone stopped working, we understand that this is really frustrating.", why:"Always open by thanking the customer and apologising explicitly for the inconvenience before anything else. Words like 'would', 'should' and 'would need' are unreliable expressions that create uncertainty — avoid them."},
-          {text:"\n"},
-          {text:"We cannot process the return until we receive the item back.", clickable:true, improved:"We would be happy to arrange a return and inspection for you. Once you confirm you would like to proceed, we will send you a prepaid return label within 24 hours. As soon as we receive the item back, we will examine it and reach out to you with a solution.", why:"Focus on what you CAN do, not what you cannot. Negative framing frustrates customers and does not help them understand next steps."},
-          {text:"\n"},
-          {text:"If you have any questions, you can contact us.", clickable:true, improved:"Please do not hesitate to reach out if you have any questions, we are happy to help. Have a great rest of your day!", why:"End messages on a positive note with a warm farewell and an explicit offer of further support. 'You can contact us' is passive and cold."},
-          {text:"\n"},
-          {text:"Kind regards,\nSofia\nTechSeller GmbH", clickable:false}
-        ]
-      },
-      {
-        title: "Scenario 2: Delivery status",
-        parts: [
-          {text:"Dear Mr. Smith,", clickable:true, improved:"Hello James,", why:"Always address customers by their first name and use an informal tone, unless they have explicitly requested otherwise. 'Dear Mr. Smith' is too formal for the refurbed tone of voice."},
-          {text:"\n"},
-          {text:"Thank you for your message.", clickable:false},
-          {text:"\n"},
-          {text:"We have looked into your order and can confirm that it is currently in transit.", clickable:false},
-          {text:"The estimated delivery date is within the next few days.", clickable:true, improved:"According to the tracking information, your order should arrive by Thursday 26 June.", why:"Be specific and give a concrete timeline. Vague expressions like 'within the next few days' do not manage the customer's expectations well."},
-          {text:"Please refer to the tracking link in your order confirmation for further updates.", clickable:true, improved:"You can follow the latest updates using your tracking link here: [tracking link]. Please do not hesitate to reach out if it has not arrived by then and we will look into it further for you.", why:"Make it easy for the customer — include the tracking link directly in the message and proactively offer further help."},
-          {text:"\n"},
-          {text:"Should you require further assistance, please do not hesitate to contact us.", clickable:false},
-          {text:"\n"},
-          {text:"Yours sincerely,\nSofia", clickable:true, improved:"Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH", why:"Always end with a warm, friendly farewell phrase before your signature. 'Yours sincerely' is overly formal and the company name is missing from the signature."}
-        ]
-      },
-      {
-        title: "Scenario 3: Refund after return",
-        parts: [
-          {text:"Hello Michael,", clickable:false},
-          {text:"\n"},
-          {text:"Thank you for returning your item and for your patience.", clickable:false},
-          {text:"\n"},
-          {text:"We are happy to let you know that we have received your return. Our team will now analyse the ticket and process your refund once the inspection is complete.", clickable:true, improved:"We are happy to let you know that we have received your return and our team is currently inspecting it.", why:"Avoid internal technical terms like 'ticket' — use 'request' instead. Separate the confirmation and the next steps into their own paragraphs for clarity."},
-          {text:"\n"},
-          {text:"Please let us know if you have any questions.", clickable:true, improved:"Once the inspection is complete, your refund will be processed within 3 to 5 business days. You will receive a confirmation email as soon as it has been issued.\n\nPlease let us know if you have any questions in the meantime, we are happy to help. Have a great rest of your week!", why:"Always give a realistic timeline and tell the customer what to expect next. End with a warm farewell and an offer of further support."},
-          {text:"\n"},
-          {text:"Kind regards,\nSofia\nTechSeller GmbH", clickable:false}
-        ]
-      },
-      {
-        title: "Scenario 4: Wrong item received",
-        parts: [
-          {text:"Hello David,", clickable:false},
-          {text:"\n"},
-          {text:"We have received your request.", clickable:true, improved:"Thank you for getting in touch with us, and we sincerely apologize for sending you the wrong item, we can imagine how disappointing that must be.", why:"Always open with a thank you and an explicit apology. Never skip straight to the matter at hand without acknowledging the customer's experience first."},
-          {text:"\n"},
-          {text:"To resolve this as quickly as possible, please send photos of the item directly to our email address at returns@techseller.com so our returns team can handle this for you.", clickable:true, improved:"To help us resolve this as quickly as possible, could you send us a photo of the item you received? This will help us confirm the details and arrange the correct replacement for you right away.", why:"Never ask customers to contact you outside the ticketing system. refurbed will not be able to support either party if the information is not visible to them. Always keep all communication within the ticketing system."},
-          {text:"\n"},
-          {text:"Once we receive your photos, we will get back to you within 24 hours with the next steps.", clickable:false},
-          {text:"\n"},
-          {text:"Kind regards,\nSofia", clickable:true, improved:"Thank you for your patience. Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH", why:"Always include a warm closing before your signature and make sure the company name is included. End on a positive note rather than closing abruptly."}
-        ]
-      },
-      {
-        title: "Scenario 5: Warranty coverage",
-        parts: [
-          {text:"Hello Sarah, thank you for your message regarding your device. As per our warranty terms, the device is covered under a 12-month limited warranty for manufacturing defects. To initiate the warranty claim procedure, we require documentation of the defect including photographic evidence. Once the aforementioned documentation has been submitted, our technical department will assess the eligibility of your claim in accordance with the applicable warranty policy. Please let us know if you have any questions.", clickable:true, improved:null, why:"This message should be divided into clear paragraphs with one empty line between each. Each paragraph should focus on one point — greeting, empathy, solution, next steps, farewell. Also avoid technical jargon like 'aforementioned' and 'initiate the warranty claim procedure' — write simply and clearly."},
-          {text:"\n"},
-          {text:"Kind regards,\nSofia", clickable:true, improved:"Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH", why:"Always end with a warm farewell phrase and include your company name in the signature."}
-        ]
-      }
+    instruction:"Click on the parts of the email you think need improving. Find all improvements to continue.",
+    reveal:"Reveal all", next:"Next", finish:"Finish", improved:"Improved", why:"Why", close:"Close",
+    correct_sentence:"This sentence is correct!",
+    done_title:"Well done!",
+    done_text:"You have worked through all the email examples. Keep these guidelines in mind every time you write to a customer.",
+    restart:"Start again",
+    scenarios:[
+      {title:"Scenario 1: Return request",parts:[
+        {text:"Hello Emma,",clickable:false},
+        {text:"\n"},
+        {text:"We have received your message and would look into the issue. The device should be eligible for a return, but we would need to verify this first.",clickable:true,improved:"Thank you for reaching out to us and for your patience. We are sorry to hear that the screen on your iPhone stopped working, we understand that this is really frustrating.",why:"Always open by thanking the customer and apologising explicitly for the inconvenience before anything else. Words like 'would', 'should' and 'would need' are unreliable expressions that create uncertainty — avoid them."},
+        {text:"\n"},
+        {text:"We cannot process the return until we receive the item back.",clickable:true,improved:"We would be happy to arrange a return and inspection for you. Once you confirm you would like to proceed, we will send you a prepaid return label within 24 hours. As soon as we receive the item back, we will examine it and reach out to you with a solution.",why:"Focus on what you CAN do, not what you cannot. Negative framing frustrates customers and does not help them understand next steps."},
+        {text:"\n"},
+        {text:"If you have any questions, you can contact us.",clickable:true,improved:"Please do not hesitate to reach out if you have any questions, we are happy to help. Have a great rest of your day!",why:"End messages on a positive note with a warm farewell and an explicit offer of further support. 'You can contact us' is passive and cold."},
+        {text:"\n"},
+        {text:"Kind regards,\nSofia\nTechSeller GmbH",clickable:false}
+      ]},
+      {title:"Scenario 2: Delivery status",parts:[
+        {text:"Dear Mr. Smith,",clickable:true,improved:"Hello James,",why:"Always address customers by their first name and use an informal tone, unless they have explicitly requested otherwise. 'Dear Mr. Smith' is too formal for the refurbed tone of voice."},
+        {text:"\n"},
+        {text:"Thank you for your message.",clickable:false},
+        {text:"\n"},
+        {text:"We have looked into your order and can confirm that it is currently in transit.",clickable:false},
+        {text:"The estimated delivery date is within the next few days.",clickable:true,improved:"According to the tracking information, your order should arrive by Thursday 26 June.",why:"Be specific and give a concrete timeline. Vague expressions like 'within the next few days' do not manage the customer's expectations well."},
+        {text:"Please refer to the tracking link in your order confirmation for further updates.",clickable:true,improved:"You can follow the latest updates using your tracking link here: [tracking link]. Please do not hesitate to reach out if it has not arrived by then and we will look into it further for you.",why:"Make it easy for the customer — include the tracking link directly in the message and proactively offer further help."},
+        {text:"\n"},
+        {text:"Should you require further assistance, please do not hesitate to contact us.",clickable:false},
+        {text:"\n"},
+        {text:"Yours sincerely,\nSofia",clickable:true,improved:"Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH",why:"Always end with a warm, friendly farewell phrase before your signature. 'Yours sincerely' is overly formal and the company name is missing from the signature."}
+      ]},
+      {title:"Scenario 3: Refund after return",parts:[
+        {text:"Hello Michael,",clickable:false},
+        {text:"\n"},
+        {text:"Thank you for returning your item and for your patience.",clickable:false},
+        {text:"\n"},
+        {text:"We are happy to let you know that we have received your return. Our team will now analyse the ticket and process your refund once the inspection is complete.",clickable:true,improved:"We are happy to let you know that we have received your return and our team is currently inspecting it.",why:"Avoid internal technical terms like 'ticket' — use 'request' instead. Separate the confirmation and the next steps into their own paragraphs for clarity."},
+        {text:"\n"},
+        {text:"Please let us know if you have any questions.",clickable:true,improved:"Once the inspection is complete, your refund will be processed within 3 to 5 business days. You will receive a confirmation email as soon as it has been issued.\n\nPlease let us know if you have any questions in the meantime, we are happy to help. Have a great rest of your week!",why:"Always give a realistic timeline and tell the customer what to expect next. End with a warm farewell and an offer of further support."},
+        {text:"\n"},
+        {text:"Kind regards,\nSofia\nTechSeller GmbH",clickable:false}
+      ]},
+      {title:"Scenario 4: Wrong item received",parts:[
+        {text:"Hello David,",clickable:false},
+        {text:"\n"},
+        {text:"We have received your request.",clickable:true,improved:"Thank you for getting in touch with us, and we sincerely apologize for sending you the wrong item, we can imagine how disappointing that must be.",why:"Always open with a thank you and an explicit apology. Never skip straight to the matter at hand without acknowledging the customer's experience first."},
+        {text:"\n"},
+        {text:"To resolve this as quickly as possible, please send photos of the item directly to our email address at returns@techseller.com so our returns team can handle this for you.",clickable:true,improved:"To help us resolve this as quickly as possible, could you send us a photo of the item you received? This will help us confirm the details and arrange the correct replacement for you right away.",why:"Never ask customers to contact you outside Zendesk. refurbed will not be able to support either party if the information is not visible to them."},
+        {text:"\n"},
+        {text:"Once we receive your photos, we will get back to you within 24 hours with the next steps.",clickable:false},
+        {text:"\n"},
+        {text:"Kind regards,\nSofia",clickable:true,improved:"Thank you for your patience. Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH",why:"Always include a warm closing before your signature and make sure the company name is included. End on a positive note rather than closing abruptly."}
+      ]},
+      {title:"Scenario 5: Warranty coverage",parts:[
+        {text:"Hello Sarah, thank you for your message regarding your device. As per our warranty terms, the device is covered under a 12-month limited warranty for manufacturing defects. To initiate the warranty claim procedure, we require documentation of the defect including photographic evidence. Once the aforementioned documentation has been submitted, our technical department will assess the eligibility of your claim in accordance with the applicable warranty policy. Please let us know if you have any questions.",clickable:true,improved:null,why:"This message should be divided into clear paragraphs with one empty line between each. Each paragraph should focus on one point — greeting, empathy, solution, next steps, farewell. Also avoid technical jargon like 'aforementioned' and 'initiate the warranty claim procedure' — write simply and clearly."},
+        {text:"\n"},
+        {text:"Kind regards,\nSofia",clickable:true,improved:"Have a great day!\n\nKind regards,\nSofia\nTechSeller GmbH",why:"Always end with a warm farewell phrase and include your company name in the signature."}
+      ]}
     ]
   },
   de: {
-    instruction: "Klicke auf die Teile der E-Mail, die deiner Meinung nach verbessert werden sollten. Finde alle Verbesserungen, um fortzufahren.",
-    reveal: "Alles aufdecken",
-    next: "Weiter",
-    finish: "Abschließen",
-    improved: "Verbessert",
-    why: "Warum",
-    close: "Schließen",
-    done_title: "Gut gemacht!",
-    done_text: "Du hast alle E-Mail-Beispiele durchgearbeitet. Denke bei jeder Nachricht an einen Kunden an diese Richtlinien.",
-    restart: "Neu starten",
-    scenarios: [
-      {
-        title: "Szenario 1: Rückgabeanfrage",
-        parts: [
-          {text:"Hallo Emma,", clickable:false},
-          {text:"\n"},
-          {text:"Wir haben deine Nachricht erhalten und würden uns das Problem ansehen. Das Gerät sollte für eine Rücksendung berechtigt sein, aber wir müssten dies erst überprüfen.", clickable:true, improved:"Vielen Dank, dass du dich an uns gewandt hast, und danke für deine Geduld. Es tut uns leid zu hören, dass der Bildschirm deines iPhones nicht mehr funktioniert, wir verstehen, dass das wirklich frustrierend ist.", why:"Beginne immer mit einem Dankeschön und einer ausdrücklichen Entschuldigung. 'Würden', 'sollte' und 'müssten' sind unzuverlässige Ausdrücke, die Unsicherheit erzeugen — vermeide sie."},
-          {text:"\n"},
-          {text:"Wir können die Rücksendung nicht bearbeiten, bis wir den Artikel zurückerhalten haben.", clickable:true, improved:"Wir helfen dir gerne dabei, eine Rücksendung und Inspektion zu arrangieren. Sobald du bestätigst, dass du fortfahren möchtest, schicken wir dir innerhalb von 24 Stunden ein vorfrankiertes Rücksendeetikett. Sobald wir den Artikel erhalten haben, werden wir ihn untersuchen und uns mit einer Lösung bei dir melden.", why:"Betone, was du TUN KANNST, nicht was du nicht kannst. Negative Formulierungen frustrieren Kunden und helfen ihnen nicht, die nächsten Schritte zu verstehen."},
-          {text:"\n"},
-          {text:"Bei Fragen kannst du dich bei uns melden.", clickable:true, improved:"Bitte melde dich, wenn du Fragen hast, wir helfen dir gerne weiter. Schönen Rest des Tages!", why:"Beende Nachrichten mit einer warmen Verabschiedung und einem ausdrücklichen Angebot für weitere Unterstützung. 'Du kannst dich bei uns melden' ist passiv und kalt."},
-          {text:"\n"},
-          {text:"Viele Grüße,\nSofia\nTechSeller GmbH", clickable:false}
-        ]
-      },
-      {
-        title: "Szenario 2: Lieferstatus",
-        parts: [
-          {text:"Sehr geehrter Herr Smith,", clickable:true, improved:"Hallo James,", why:"Sprich Kunden immer mit ihrem Vornamen und in einem informellen Ton an, es sei denn, sie haben ausdrücklich etwas anderes gewünscht. 'Sehr geehrter Herr Smith' ist zu formell für den refurbed Tonfall."},
-          {text:"\n"},
-          {text:"Vielen Dank für Ihre Nachricht.", clickable:false},
-          {text:"\n"},
-          {text:"Wir haben Ihre Bestellung überprüft und können bestätigen, dass sie sich derzeit im Transit befindet.", clickable:false},
-          {text:"Der voraussichtliche Liefertermin liegt innerhalb der nächsten Tage.", clickable:true, improved:"Laut den Tracking-Informationen sollte deine Bestellung bis Donnerstag, den 26. Juni ankommen.", why:"Sei konkret und gib einen klaren Zeitrahmen an. Vage Ausdrücke wie 'innerhalb der nächsten Tage' helfen dem Kunden nicht weiter."},
-          {text:"Bitte beachten Sie den Tracking-Link in Ihrer Auftragsbestätigung für weitere Updates.", clickable:true, improved:"Du kannst die neuesten Updates über deinen Tracking-Link hier verfolgen: [Tracking-Link]. Bitte melde dich, wenn die Bestellung bis dahin nicht angekommen ist, und wir werden die Sache für dich weiter verfolgen.", why:"Füge den Tracking-Link direkt in die Nachricht ein und biete proaktiv weitere Hilfe an."},
-          {text:"\n"},
-          {text:"Sollten Sie weitere Unterstützung benötigen, stehen wir Ihnen gerne zur Verfügung.", clickable:false},
-          {text:"\n"},
-          {text:"Mit freundlichen Grüßen,\nSofia", clickable:true, improved:"Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH", why:"Beende die Nachricht mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist. 'Mit freundlichen Grüßen' ist zu formell für den refurbed Tonfall."}
-        ]
-      },
-      {
-        title: "Szenario 3: Rückerstattung nach Rücksendung",
-        parts: [
-          {text:"Hallo Michael,", clickable:false},
-          {text:"\n"},
-          {text:"Vielen Dank, dass du den Artikel zurückgeschickt hast, und danke für deine Geduld.", clickable:false},
-          {text:"\n"},
-          {text:"Wir freuen uns, dir mitteilen zu können, dass wir deine Rücksendung erhalten haben. Unser Team wird nun das Ticket analysieren und deine Rückerstattung bearbeiten, sobald die Inspektion abgeschlossen ist.", clickable:true, improved:"Wir freuen uns, dir mitteilen zu können, dass wir deine Rücksendung erhalten haben und unser Team sie derzeit prüft.", why:"Vermeide interne Begriffe wie 'Ticket' — verwende stattdessen 'Anfrage'. Trenne außerdem die Bestätigung von den nächsten Schritten für mehr Klarheit."},
-          {text:"\n"},
-          {text:"Bitte melde dich, wenn du Fragen hast.", clickable:true, improved:"Sobald die Prüfung abgeschlossen ist, wird deine Rückerstattung innerhalb von 3 bis 5 Werktagen bearbeitet. Du erhältst eine Bestätigungs-E-Mail, sobald sie ausgestellt wurde.\n\nBitte melde dich, wenn du in der Zwischenzeit Fragen hast, wir helfen dir gerne weiter. Schönen Rest der Woche!", why:"Gib immer einen realistischen Zeitrahmen an und teile dem Kunden mit, was er als nächstes erwarten kann. Beende die Nachricht mit einer warmen Verabschiedung."},
-          {text:"\n"},
-          {text:"Viele Grüße,\nSofia\nTechSeller GmbH", clickable:false}
-        ]
-      },
-      {
-        title: "Szenario 4: Falscher Artikel erhalten",
-        parts: [
-          {text:"Hallo David,", clickable:false},
-          {text:"\n"},
-          {text:"Wir haben deine Anfrage erhalten.", clickable:true, improved:"Vielen Dank, dass du dich an uns gewandt hast, und wir entschuldigen uns aufrichtig dafür, dass wir dir den falschen Artikel geschickt haben, wir können uns vorstellen, wie enttäuschend das sein muss.", why:"Beginne immer mit einem Dankeschön und einer ausdrücklichen Entschuldigung. Gehe nie direkt zur Sache, ohne zuerst die Erfahrung des Kunden anzuerkennen."},
-          {text:"\n"},
-          {text:"Um dies so schnell wie möglich zu lösen, sende bitte Fotos des Artikels direkt an unsere E-Mail-Adresse returns@techseller.com, damit unser Rücksendeteam dies für dich bearbeiten kann.", clickable:true, improved:"Damit wir dies so schnell wie möglich lösen können, könntest du uns bitte ein Foto des erhaltenen Artikels schicken? Das hilft uns, die Details zu bestätigen und den richtigen Ersatz sofort für dich zu arrangieren.", why:"Bitte Kunden niemals, dich außerhalb des Ticketsystems zu kontaktieren. refurbed kann weder den Verkäufer noch den Kunden unterstützen, wenn die Informationen nicht sichtbar sind."},
-          {text:"\n"},
-          {text:"Sobald wir deine Fotos erhalten haben, melden wir uns innerhalb von 24 Stunden mit den nächsten Schritten bei dir.", clickable:false},
-          {text:"\n"},
-          {text:"Viele Grüße,\nSofia", clickable:true, improved:"Danke für deine Geduld. Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH", why:"Beende die Nachricht immer mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
-        ]
-      },
-      {
-        title: "Szenario 5: Garantieabdeckung",
-        parts: [
-          {text:"Hallo Sarah, vielen Dank für deine Nachricht bezüglich deines Geräts. Gemäß unseren Garantiebedingungen ist das Gerät durch eine 12-monatige eingeschränkte Garantie für Herstellungsfehler abgedeckt. Um das Garantieantragsverfahren einzuleiten, benötigen wir eine Dokumentation des Defekts einschließlich fotografischer Nachweise. Sobald die oben genannte Dokumentation eingereicht wurde, wird unsere technische Abteilung die Berechtigung Ihres Anspruchs gemäß der geltenden Garantierichtlinie prüfen. Bitte melde dich, wenn du Fragen hast.", clickable:true, improved:null, why:"Diese Nachricht sollte in klare Absätze mit einer Leerzeile zwischen jedem Abschnitt unterteilt werden. Jeder Absatz sollte sich auf einen Punkt konzentrieren. Vermeide außerdem Fachjargon wie 'Garantieantragsverfahren' und 'oben genannte Dokumentation' — schreibe einfach und klar."},
-          {text:"\n"},
-          {text:"Viele Grüße,\nSofia", clickable:true, improved:"Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH", why:"Beende die Nachricht immer mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
-        ]
-      }
+    instruction:"Klicke auf die Teile der E-Mail, die deiner Meinung nach verbessert werden sollten. Finde alle Verbesserungen, um fortzufahren.",
+    reveal:"Alles aufdecken", next:"Weiter", finish:"Abschließen", improved:"Verbessert", why:"Warum", close:"Schließen",
+    correct_sentence:"Dieser Satz ist korrekt!",
+    done_title:"Gut gemacht!",
+    done_text:"Du hast alle E-Mail-Beispiele durchgearbeitet. Denke bei jeder Nachricht an einen Kunden an diese Richtlinien.",
+    restart:"Neu starten",
+    scenarios:[
+      {title:"Szenario 1: Rückgabeanfrage",parts:[
+        {text:"Hallo Emma,",clickable:false},
+        {text:"\n"},
+        {text:"Wir haben deine Nachricht erhalten und würden uns das Problem ansehen. Das Gerät sollte für eine Rücksendung berechtigt sein, aber wir müssten dies erst überprüfen.",clickable:true,improved:"Vielen Dank, dass du dich an uns gewandt hast, und danke für deine Geduld. Es tut uns leid zu hören, dass der Bildschirm deines iPhones nicht mehr funktioniert, wir verstehen, dass das wirklich frustrierend ist.",why:"Beginne immer mit einem Dankeschön und einer ausdrücklichen Entschuldigung. 'Würden', 'sollte' und 'müssten' sind unzuverlässige Ausdrücke, die Unsicherheit erzeugen — vermeide sie."},
+        {text:"\n"},
+        {text:"Wir können die Rücksendung nicht bearbeiten, bis wir den Artikel zurückerhalten haben.",clickable:true,improved:"Wir helfen dir gerne dabei, eine Rücksendung und Inspektion zu arrangieren. Sobald du bestätigst, dass du fortfahren möchtest, schicken wir dir innerhalb von 24 Stunden ein vorfrankiertes Rücksendeetikett. Sobald wir den Artikel erhalten haben, werden wir ihn untersuchen und uns mit einer Lösung bei dir melden.",why:"Betone, was du TUN KANNST, nicht was du nicht kannst. Negative Formulierungen frustrieren Kunden und helfen ihnen nicht, die nächsten Schritte zu verstehen."},
+        {text:"\n"},
+        {text:"Bei Fragen kannst du dich bei uns melden.",clickable:true,improved:"Bitte melde dich, wenn du Fragen hast, wir helfen dir gerne weiter. Schönen Rest des Tages!",why:"Beende Nachrichten mit einer warmen Verabschiedung und einem ausdrücklichen Angebot für weitere Unterstützung. 'Du kannst dich bei uns melden' ist passiv und kalt."},
+        {text:"\n"},
+        {text:"Viele Grüße,\nSofia\nTechSeller GmbH",clickable:false}
+      ]},
+      {title:"Szenario 2: Lieferstatus",parts:[
+        {text:"Sehr geehrter Herr Smith,",clickable:true,improved:"Hallo James,",why:"Sprich Kunden immer mit ihrem Vornamen und in einem informellen Ton an, es sei denn, sie haben ausdrücklich etwas anderes gewünscht. 'Sehr geehrter Herr Smith' ist zu formell für den refurbed Tonfall."},
+        {text:"\n"},
+        {text:"Vielen Dank für Ihre Nachricht.",clickable:false},
+        {text:"\n"},
+        {text:"Wir haben Ihre Bestellung überprüft und können bestätigen, dass sie sich derzeit im Transit befindet.",clickable:false},
+        {text:"Der voraussichtliche Liefertermin liegt innerhalb der nächsten Tage.",clickable:true,improved:"Laut den Tracking-Informationen sollte deine Bestellung bis Donnerstag, den 26. Juni ankommen.",why:"Sei konkret und gib einen klaren Zeitrahmen an. Vage Ausdrücke wie 'innerhalb der nächsten Tage' helfen dem Kunden nicht weiter."},
+        {text:"Bitte beachten Sie den Tracking-Link in Ihrer Auftragsbestätigung für weitere Updates.",clickable:true,improved:"Du kannst die neuesten Updates über deinen Tracking-Link hier verfolgen: [Tracking-Link]. Bitte melde dich, wenn die Bestellung bis dahin nicht angekommen ist, und wir werden die Sache für dich weiter verfolgen.",why:"Füge den Tracking-Link direkt in die Nachricht ein und biete proaktiv weitere Hilfe an."},
+        {text:"\n"},
+        {text:"Sollten Sie weitere Unterstützung benötigen, stehen wir Ihnen gerne zur Verfügung.",clickable:false},
+        {text:"\n"},
+        {text:"Mit freundlichen Grüßen,\nSofia",clickable:true,improved:"Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH",why:"Beende die Nachricht mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
+      ]},
+      {title:"Szenario 3: Rückerstattung nach Rücksendung",parts:[
+        {text:"Hallo Michael,",clickable:false},
+        {text:"\n"},
+        {text:"Vielen Dank, dass du den Artikel zurückgeschickt hast, und danke für deine Geduld.",clickable:false},
+        {text:"\n"},
+        {text:"Wir freuen uns, dir mitteilen zu können, dass wir deine Rücksendung erhalten haben. Unser Team wird nun das Ticket analysieren und deine Rückerstattung bearbeiten, sobald die Inspektion abgeschlossen ist.",clickable:true,improved:"Wir freuen uns, dir mitteilen zu können, dass wir deine Rücksendung erhalten haben und unser Team sie derzeit prüft.",why:"Vermeide interne Begriffe wie 'Ticket' — verwende stattdessen 'Anfrage'. Trenne außerdem die Bestätigung von den nächsten Schritten für mehr Klarheit."},
+        {text:"\n"},
+        {text:"Bitte melde dich, wenn du Fragen hast.",clickable:true,improved:"Sobald die Prüfung abgeschlossen ist, wird deine Rückerstattung innerhalb von 3 bis 5 Werktagen bearbeitet. Du erhältst eine Bestätigungs-E-Mail, sobald sie ausgestellt wurde.\n\nBitte melde dich, wenn du in der Zwischenzeit Fragen hast, wir helfen dir gerne weiter. Schönen Rest der Woche!",why:"Gib immer einen realistischen Zeitrahmen an und teile dem Kunden mit, was er als nächstes erwarten kann. Beende die Nachricht mit einer warmen Verabschiedung."},
+        {text:"\n"},
+        {text:"Viele Grüße,\nSofia\nTechSeller GmbH",clickable:false}
+      ]},
+      {title:"Szenario 4: Falscher Artikel erhalten",parts:[
+        {text:"Hallo David,",clickable:false},
+        {text:"\n"},
+        {text:"Wir haben deine Anfrage erhalten.",clickable:true,improved:"Vielen Dank, dass du dich an uns gewandt hast, und wir entschuldigen uns aufrichtig dafür, dass wir dir den falschen Artikel geschickt haben, wir können uns vorstellen, wie enttäuschend das sein muss.",why:"Beginne immer mit einem Dankeschön und einer ausdrücklichen Entschuldigung. Gehe nie direkt zur Sache, ohne zuerst die Erfahrung des Kunden anzuerkennen."},
+        {text:"\n"},
+        {text:"Um dies so schnell wie möglich zu lösen, sende bitte Fotos des Artikels direkt an unsere E-Mail-Adresse returns@techseller.com, damit unser Rücksendeteam dies für dich bearbeiten kann.",clickable:true,improved:"Damit wir dies so schnell wie möglich lösen können, könntest du uns bitte ein Foto des erhaltenen Artikels schicken? Das hilft uns, die Details zu bestätigen und den richtigen Ersatz sofort für dich zu arrangieren.",why:"Bitte Kunden niemals, dich außerhalb von Zendesk zu kontaktieren. refurbed kann weder den Verkäufer noch den Kunden unterstützen, wenn die Informationen nicht sichtbar sind."},
+        {text:"\n"},
+        {text:"Sobald wir deine Fotos erhalten haben, melden wir uns innerhalb von 24 Stunden mit den nächsten Schritten bei dir.",clickable:false},
+        {text:"\n"},
+        {text:"Viele Grüße,\nSofia",clickable:true,improved:"Danke für deine Geduld. Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH",why:"Beende die Nachricht immer mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
+      ]},
+      {title:"Szenario 5: Garantieabdeckung",parts:[
+        {text:"Hallo Sarah, vielen Dank für deine Nachricht bezüglich deines Geräts. Gemäß unseren Garantiebedingungen ist das Gerät durch eine 12-monatige eingeschränkte Garantie für Herstellungsfehler abgedeckt. Um das Garantieantragsverfahren einzuleiten, benötigen wir eine Dokumentation des Defekts einschließlich fotografischer Nachweise. Sobald die oben genannte Dokumentation eingereicht wurde, wird unsere technische Abteilung die Berechtigung Ihres Anspruchs gemäß der geltenden Garantierichtlinie prüfen. Bitte melde dich, wenn du Fragen hast.",clickable:true,improved:null,why:"Diese Nachricht sollte in klare Absätze mit einer Leerzeile zwischen jedem Abschnitt unterteilt werden. Jeder Absatz sollte sich auf einen Punkt konzentrieren. Vermeide außerdem Fachjargon wie 'Garantieantragsverfahren' und 'oben genannte Dokumentation' — schreibe einfach und klar."},
+        {text:"\n"},
+        {text:"Viele Grüße,\nSofia",clickable:true,improved:"Schönen Tag noch!\n\nViele Grüße,\nSofia\nTechSeller GmbH",why:"Beende die Nachricht immer mit einer warmen Verabschiedung und stelle sicher, dass der Firmenname in der Signatur enthalten ist."}
+      ]}
     ]
   },
   it: {
-    instruction: "Clicca sulle parti dell'email che pensi debbano essere migliorate. Trova tutti i miglioramenti per continuare.",
-    reveal: "Mostra tutto",
-    next: "Avanti",
-    finish: "Termina",
-    improved: "Migliorato",
-    why: "Perché",
-    close: "Chiudi",
-    done_title: "Ottimo lavoro!",
-    done_text: "Hai completato tutti gli esempi di email. Tieni a mente queste linee guida ogni volta che scrivi a un cliente.",
-    restart: "Ricomincia",
-    scenarios: [
-      {
-        title: "Scenario 1: Richiesta di reso",
-        parts: [
-          {text:"Ciao Emma,", clickable:false},
-          {text:"\n"},
-          {text:"Abbiamo ricevuto il tuo messaggio e ci occuperemmo del problema. Il dispositivo dovrebbe essere idoneo per un reso, ma dovremmo prima verificarlo.", clickable:true, improved:"Grazie per averci contattato e per la tua pazienza. Siamo spiacenti di sapere che lo schermo del tuo iPhone ha smesso di funzionare, capiamo che sia davvero frustrante.", why:"Inizia sempre con un ringraziamento e una scusa esplicita prima di tutto il resto. Parole come 'ci occuperemmo', 'dovrebbe' e 'dovremmo' sono espressioni inaffidabili che creano incertezza — evitale."},
-          {text:"\n"},
-          {text:"Non possiamo elaborare il reso fino a quando non riceviamo l'articolo indietro.", clickable:true, improved:"Saremo felici di organizzare un reso e un'ispezione per te. Una volta che confermi di voler procedere, ti invieremo un'etichetta di reso prepagata entro 24 ore. Non appena riceveremo l'articolo, lo esamineremo e ti contatteremo con una soluzione.", why:"Concentrati su ciò che PUOI fare, non su ciò che non puoi. Le formulazioni negative frustrano i clienti."},
-          {text:"\n"},
-          {text:"Per qualsiasi domanda puoi contattarci.", clickable:true, improved:"Non esitare a contattarci se hai domande, siamo qui per aiutarti. Buon proseguimento di giornata!", why:"Concludi sempre con un saluto caloroso e un'offerta esplicita di ulteriore supporto. 'Puoi contattarci' è passivo e freddo."},
-          {text:"\n"},
-          {text:"Cordiali saluti,\nSofia\nTechSeller GmbH", clickable:false}
-        ]
-      },
-      {
-        title: "Scenario 2: Stato della consegna",
-        parts: [
-          {text:"Gentile Sig. Smith,", clickable:true, improved:"Ciao James,", why:"Rivolgiti sempre ai clienti con il loro nome di battesimo e in modo informale, a meno che non abbiano esplicitamente richiesto diversamente. 'Gentile Sig. Smith' è troppo formale per il tono di refurbed."},
-          {text:"\n"},
-          {text:"Grazie per il suo messaggio.", clickable:false},
-          {text:"\n"},
-          {text:"Abbiamo controllato il suo ordine e possiamo confermare che è attualmente in transito.", clickable:false},
-          {text:"La data di consegna stimata è entro i prossimi giorni.", clickable:true, improved:"In base alle informazioni di tracciamento, il tuo ordine dovrebbe arrivare entro giovedì 26 giugno.", why:"Sii specifico e fornisci una tempistica concreta. Espressioni vaghe come 'entro i prossimi giorni' non gestiscono bene le aspettative del cliente."},
-          {text:"Si prega di fare riferimento al link di tracciamento nella conferma dell'ordine per ulteriori aggiornamenti.", clickable:true, improved:"Puoi seguire gli ultimi aggiornamenti tramite il tuo link di tracciamento qui: [link di tracciamento]. Non esitare a contattarci se non è arrivato entro allora e approfondiremo la questione per te.", why:"Includi il link di tracciamento direttamente nel messaggio e offri proattivamente ulteriore assistenza."},
-          {text:"\n"},
-          {text:"Qualora necessitasse di ulteriore assistenza, non esiti a contattarci.", clickable:false},
-          {text:"\n"},
-          {text:"Distinti saluti,\nSofia", clickable:true, improved:"Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH", why:"Concludi sempre con un saluto caloroso prima della firma e assicurati che il nome dell'azienda sia incluso. 'Distinti saluti' è troppo formale per il tono di refurbed."}
-        ]
-      },
-      {
-        title: "Scenario 3: Rimborso dopo reso",
-        parts: [
-          {text:"Ciao Michael,", clickable:false},
-          {text:"\n"},
-          {text:"Grazie per aver restituito l'articolo e per la tua pazienza.", clickable:false},
-          {text:"\n"},
-          {text:"Siamo lieti di comunicarti che abbiamo ricevuto il tuo reso. Il nostro team analizzerà ora il ticket ed elaborerà il rimborso una volta completata l'ispezione.", clickable:true, improved:"Siamo lieti di comunicarti che abbiamo ricevuto il tuo reso e il nostro team lo sta attualmente ispezionando.", why:"Evita termini interni come 'ticket' — usa 'richiesta' al suo posto. Separa inoltre la conferma dai prossimi passi per maggiore chiarezza."},
-          {text:"\n"},
-          {text:"Facci sapere se hai domande.", clickable:true, improved:"Una volta completata l'ispezione, il tuo rimborso verrà elaborato entro 3-5 giorni lavorativi. Riceverai un'email di conferma non appena sarà stato emesso.\n\nNon esitare a contattarci nel frattempo, siamo qui per aiutarti. Buon proseguimento di settimana!", why:"Fornisci sempre una tempistica realistica e comunica al cliente cosa aspettarsi. Concludi con un saluto caloroso."},
-          {text:"\n"},
-          {text:"Cordiali saluti,\nSofia\nTechSeller GmbH", clickable:false}
-        ]
-      },
-      {
-        title: "Scenario 4: Articolo sbagliato ricevuto",
-        parts: [
-          {text:"Ciao David,", clickable:false},
-          {text:"\n"},
-          {text:"Abbiamo ricevuto la tua richiesta.", clickable:true, improved:"Grazie per averci contattato e ci scusiamo sinceramente per averti inviato l'articolo sbagliato, possiamo immaginare quanto deludente possa essere.", why:"Inizia sempre con un ringraziamento e una scusa esplicita. Non passare mai direttamente al problema senza prima riconoscere l'esperienza del cliente."},
-          {text:"\n"},
-          {text:"Per risolvere questo il prima possibile, ti preghiamo di inviare le foto dell'articolo direttamente alla nostra email returns@techseller.com in modo che il nostro team resi possa occuparsene.", clickable:true, improved:"Per aiutarci a risolvere questo il prima possibile, potresti inviarci una foto dell'articolo ricevuto? Questo ci aiuterà a confermare i dettagli e a organizzare subito la sostituzione corretta per te.", why:"Non chiedere mai ai clienti di contattarti fuori dal sistema di ticketing. refurbed non sarà in grado di supportare né il venditore né il cliente se le informazioni non sono visibili."},
-          {text:"\n"},
-          {text:"Una volta ricevute le tue foto, ti risponderemo entro 24 ore con i prossimi passi.", clickable:false},
-          {text:"\n"},
-          {text:"Cordiali saluti,\nSofia", clickable:true, improved:"Grazie per la tua pazienza. Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH", why:"Concludi sempre con un saluto caloroso e assicurati che il nome dell'azienda sia incluso nella firma."}
-        ]
-      },
-      {
-        title: "Scenario 5: Copertura della garanzia",
-        parts: [
-          {text:"Ciao Sarah, grazie per il tuo messaggio riguardo al tuo dispositivo. In base ai termini della garanzia, il dispositivo è coperto da una garanzia limitata di 12 mesi per difetti di fabbricazione. Per avviare la procedura di richiesta di garanzia, abbiamo bisogno della documentazione del difetto incluse prove fotografiche. Una volta presentata la suddetta documentazione, il nostro dipartimento tecnico valuterà l'idoneità della tua richiesta in conformità con la politica di garanzia applicabile. Facci sapere se hai domande.", clickable:true, improved:null, why:"Questo messaggio dovrebbe essere diviso in paragrafi chiari con una riga vuota tra ciascuno. Ogni paragrafo dovrebbe concentrarsi su un punto. Evita anche il gergo tecnico come 'procedura di richiesta di garanzia' e 'suddetta documentazione' — scrivi in modo semplice e chiaro."},
-          {text:"\n"},
-          {text:"Cordiali saluti,\nSofia", clickable:true, improved:"Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH", why:"Concludi sempre con un saluto caloroso e assicurati che il nome dell'azienda sia incluso nella firma."}
-        ]
-      }
+    instruction:"Clicca sulle parti dell'email che pensi debbano essere migliorate. Trova tutti i miglioramenti per continuare.",
+    reveal:"Mostra tutto", next:"Avanti", finish:"Termina", improved:"Migliorato", why:"Perché", close:"Chiudi",
+    correct_sentence:"Questa frase è corretta!",
+    done_title:"Ottimo lavoro!",
+    done_text:"Hai completato tutti gli esempi di email. Tieni a mente queste linee guida ogni volta che scrivi a un cliente.",
+    restart:"Ricomincia",
+    scenarios:[
+      {title:"Scenario 1: Richiesta di reso",parts:[
+        {text:"Ciao Emma,",clickable:false},
+        {text:"\n"},
+        {text:"Abbiamo ricevuto il tuo messaggio e ci occuperemmo del problema. Il dispositivo dovrebbe essere idoneo per un reso, ma dovremmo prima verificarlo.",clickable:true,improved:"Grazie per averci contattato e per la tua pazienza. Siamo spiacenti di sapere che lo schermo del tuo iPhone ha smesso di funzionare, capiamo che sia davvero frustrante.",why:"Inizia sempre con un ringraziamento e una scusa esplicita prima di tutto il resto. Parole come 'ci occuperemmo', 'dovrebbe' e 'dovremmo' sono espressioni inaffidabili che creano incertezza — evitale."},
+        {text:"\n"},
+        {text:"Non possiamo elaborare il reso fino a quando non riceviamo l'articolo indietro.",clickable:true,improved:"Saremo felici di organizzare un reso e un'ispezione per te. Una volta che confermi di voler procedere, ti invieremo un'etichetta di reso prepagata entro 24 ore. Non appena riceveremo l'articolo, lo esamineremo e ti contatteremo con una soluzione.",why:"Concentrati su ciò che PUOI fare, non su ciò che non puoi. Le formulazioni negative frustrano i clienti."},
+        {text:"\n"},
+        {text:"Per qualsiasi domanda puoi contattarci.",clickable:true,improved:"Non esitare a contattarci se hai domande, siamo qui per aiutarti. Buon proseguimento di giornata!",why:"Concludi sempre con un saluto caloroso e un'offerta esplicita di ulteriore supporto. 'Puoi contattarci' è passivo e freddo."},
+        {text:"\n"},
+        {text:"Cordiali saluti,\nSofia\nTechSeller GmbH",clickable:false}
+      ]},
+      {title:"Scenario 2: Stato della consegna",parts:[
+        {text:"Gentile Sig. Smith,",clickable:true,improved:"Ciao James,",why:"Rivolgiti sempre ai clienti con il loro nome di battesimo e in modo informale, a meno che non abbiano esplicitamente richiesto diversamente. 'Gentile Sig. Smith' è troppo formale per il tono di refurbed."},
+        {text:"\n"},
+        {text:"Grazie per il suo messaggio.",clickable:false},
+        {text:"\n"},
+        {text:"Abbiamo controllato il suo ordine e possiamo confermare che è attualmente in transito.",clickable:false},
+        {text:"La data di consegna stimata è entro i prossimi giorni.",clickable:true,improved:"In base alle informazioni di tracciamento, il tuo ordine dovrebbe arrivare entro giovedì 26 giugno.",why:"Sii specifico e fornisci una tempistica concreta. Espressioni vaghe come 'entro i prossimi giorni' non gestiscono bene le aspettative del cliente."},
+        {text:"Si prega di fare riferimento al link di tracciamento nella conferma dell'ordine per ulteriori aggiornamenti.",clickable:true,improved:"Puoi seguire gli ultimi aggiornamenti tramite il tuo link di tracciamento qui: [link di tracciamento]. Non esitare a contattarci se non è arrivato entro allora e approfondiremo la questione per te.",why:"Includi il link di tracciamento direttamente nel messaggio e offri proattivamente ulteriore assistenza."},
+        {text:"\n"},
+        {text:"Qualora necessitasse di ulteriore assistenza, non esiti a contattarci.",clickable:false},
+        {text:"\n"},
+        {text:"Distinti saluti,\nSofia",clickable:true,improved:"Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH",why:"Concludi sempre con un saluto caloroso prima della firma e assicurati che il nome dell'azienda sia incluso. 'Distinti saluti' è troppo formale per il tono di refurbed."}
+      ]},
+      {title:"Scenario 3: Rimborso dopo reso",parts:[
+        {text:"Ciao Michael,",clickable:false},
+        {text:"\n"},
+        {text:"Grazie per aver restituito l'articolo e per la tua pazienza.",clickable:false},
+        {text:"\n"},
+        {text:"Siamo lieti di comunicarti che abbiamo ricevuto il tuo reso. Il nostro team analizzerà ora il ticket ed elaborerà il rimborso una volta completata l'ispezione.",clickable:true,improved:"Siamo lieti di comunicarti che abbiamo ricevuto il tuo reso e il nostro team lo sta attualmente ispezionando.",why:"Evita termini interni come 'ticket' — usa 'richiesta' al suo posto. Separa inoltre la conferma dai prossimi passi per maggiore chiarezza."},
+        {text:"\n"},
+        {text:"Facci sapere se hai domande.",clickable:true,improved:"Una volta completata l'ispezione, il tuo rimborso verrà elaborato entro 3-5 giorni lavorativi. Riceverai un'email di conferma non appena sarà stato emesso.\n\nNon esitare a contattarci nel frattempo, siamo qui per aiutarti. Buon proseguimento di settimana!",why:"Fornisci sempre una tempistica realistica e comunica al cliente cosa aspettarsi. Concludi con un saluto caloroso."},
+        {text:"\n"},
+        {text:"Cordiali saluti,\nSofia\nTechSeller GmbH",clickable:false}
+      ]},
+      {title:"Scenario 4: Articolo sbagliato ricevuto",parts:[
+        {text:"Ciao David,",clickable:false},
+        {text:"\n"},
+        {text:"Abbiamo ricevuto la tua richiesta.",clickable:true,improved:"Grazie per averci contattato e ci scusiamo sinceramente per averti inviato l'articolo sbagliato, possiamo immaginare quanto deludente possa essere.",why:"Inizia sempre con un ringraziamento e una scusa esplicita. Non passare mai direttamente al problema senza prima riconoscere l'esperienza del cliente."},
+        {text:"\n"},
+        {text:"Per risolvere questo il prima possibile, ti preghiamo di inviare le foto dell'articolo direttamente alla nostra email returns@techseller.com in modo che il nostro team resi possa occuparsene.",clickable:true,improved:"Per aiutarci a risolvere questo il prima possibile, potresti inviarci una foto dell'articolo ricevuto? Questo ci aiuterà a confermare i dettagli e a organizzare subito la sostituzione corretta per te.",why:"Non chiedere mai ai clienti di contattarti fuori da Zendesk. refurbed non sarà in grado di supportare né il venditore né il cliente se le informazioni non sono visibili."},
+        {text:"\n"},
+        {text:"Una volta ricevute le tue foto, ti risponderemo entro 24 ore con i prossimi passi.",clickable:false},
+        {text:"\n"},
+        {text:"Cordiali saluti,\nSofia",clickable:true,improved:"Grazie per la tua pazienza. Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH",why:"Concludi sempre con un saluto caloroso e assicurati che il nome dell'azienda sia incluso nella firma."}
+      ]},
+      {title:"Scenario 5: Copertura della garanzia",parts:[
+        {text:"Ciao Sarah, grazie per il tuo messaggio riguardo al tuo dispositivo. In base ai termini della garanzia, il dispositivo è coperto da una garanzia limitata di 12 mesi per difetti di fabbricazione. Per avviare la procedura di richiesta di garanzia, abbiamo bisogno della documentazione del difetto incluse prove fotografiche. Una volta presentata la suddetta documentazione, il nostro dipartimento tecnico valuterà l'idoneità della tua richiesta in conformità con la politica di garanzia applicabile. Facci sapere se hai domande.",clickable:true,improved:null,why:"Questo messaggio dovrebbe essere diviso in paragrafi chiari con una riga vuota tra ciascuno. Ogni paragrafo dovrebbe concentrarsi su un punto. Evita anche il gergo tecnico come 'procedura di richiesta di garanzia' e 'suddetta documentazione' — scrivi in modo semplice e chiaro."},
+        {text:"\n"},
+        {text:"Cordiali saluti,\nSofia",clickable:true,improved:"Buona giornata!\n\nCordiali saluti,\nSofia\nTechSeller GmbH",why:"Concludi sempre con un saluto caloroso e assicurati che il nome dell'azienda sia incluso nella firma."}
+      ]}
     ]
   }
 };
 
 let currentLang='en', currentQ=0, answered=false, userAnswers=[], quizDone=false;
 function getQuiz(){return QUIZZES[currentLang];}
-
 let exCurrent=0, exDone=false, exFound={};
 
 function switchMainTab(tab){
@@ -477,17 +460,31 @@ function renderResults(){
   const labels=['A','B','C','D'];
   let html=renderLangBar();
   html+='<div class="score-card"><div class="score-big">'+score+' / '+total+'</div><div class="score-label">'+pct+'% — '+score+' '+quiz.score_label+'</div><div style="margin-top:10px"><span class="tag '+(pass?'tag-pass':'tag-fail')+'">'+(pass?'✓ Pass':'✗ Needs review')+'</span></div></div>';
+  html+='<div class="cta-box '+(pass?'pass':'fail')+'">';
+  html+=quiz[pass?'cta_pass':'cta_fail'];
+  if(!pass) html+=' <a href="'+GUIDELINES_URL+'" target="_blank">'+quiz.cta_link+' &#8594;</a>';
+  html+='</div>';
   html+='<div class="review-title">'+quiz.review_title+'</div>';
   quiz.questions.forEach((q,i)=>{
     const ok=userAnswers[i]===q.correct;
-    html+='<div class="review-item"><div class="review-q">'+(i+1)+'. '+q.q+'</div>';
-    if(!ok)html+='<div class="review-row review-wrong">✗ '+quiz.your_ans+' '+labels[userAnswers[i]]+'. '+q.opts[userAnswers[i]]+'</div>';
-    html+='<div class="review-row review-correct">✓ '+quiz.correct_ans+' '+labels[q.correct]+'. '+q.opts[q.correct]+'</div>';
-    if(!ok)html+='<div class="review-explanation">'+q.explanation+'</div>';
+    html+='<div class="review-item">';
+    html+='<div class="review-item-header" onclick="toggleReview(this)">';
+    html+='<span style="font-size:13px;">'+(i+1)+'. '+q.q+'</span>';
+    html+='<span class="review-item-status '+(ok?'ok':'no')+'">'+(ok?'✓':'✗')+'</span>';
     html+='</div>';
+    html+='<div class="review-item-body">';
+    if(!ok) html+='<div class="review-row review-wrong">✗ '+quiz.your_ans+' '+labels[userAnswers[i]]+'. '+q.opts[userAnswers[i]]+'</div>';
+    html+='<div class="review-row review-correct">✓ '+quiz.correct_ans+' '+labels[q.correct]+'. '+q.opts[q.correct]+'</div>';
+    if(!ok) html+='<div class="review-explanation">'+q.explanation+'</div>';
+    html+='</div></div>';
   });
   html+='<button class="restart-btn" onclick="restartQuiz()">'+quiz.restart+'</button>';
   document.getElementById('app').innerHTML=html;
+}
+
+function toggleReview(header){
+  const body=header.nextElementSibling;
+  body.classList.toggle('open');
 }
 
 function selectAnswer(i){if(answered)return;answered=true;userAnswers[currentQ]=i;renderQuiz();}
@@ -497,15 +494,13 @@ function switchLang(l){
   currentQ=0;answered=false;userAnswers=[];quizDone=false;
   exCurrent=0;exDone=false;exFound={};
   const activeTab=document.querySelector('.main-tab.active').getAttribute('onclick').includes('quiz')?'quiz':'examples';
-  if(activeTab==='quiz') renderQuiz();
-  else renderEx();
+  if(activeTab==='quiz') renderQuiz(); else renderEx();
 }
 function restartQuiz(){currentQ=0;answered=false;userAnswers=[];quizDone=false;renderQuiz();}
 
 function getExData(){return EXAMPLES[currentLang];}
-
 function countClickable(parts){return parts.filter(p=>p.clickable).length;}
-function countFound(scenarioIdx){return Object.keys(exFound[scenarioIdx]||{}).length;}
+function countFound(idx){return Object.keys(exFound[idx]||{}).length;}
 
 function renderEx(){
   const data=getExData();
@@ -517,7 +512,6 @@ function renderEx(){
   const foundCount=countFound(exCurrent);
   const allFound=foundCount>=totalClickable;
   const isLast=exCurrent===total-1;
-
   let html='<div class="ex-wrap">';
   html+=renderLangBar();
   html+='<div class="ex-progress-bg"><div class="ex-progress-fill" style="width:'+pct+'%"></div></div>';
@@ -528,46 +522,46 @@ function renderEx(){
   scenario.parts.forEach((part,idx)=>{
     if(part.text==='\n'){html+='<span class="email-spacer"></span>';return;}
     const isFound=(exFound[exCurrent]||{})[idx];
-    if(part.clickable){
-      html+='<span class="email-part'+(isFound?' found':'')+'" onclick="exClickPart('+exCurrent+','+idx+')">'+escHtml(part.text)+'</span>';
-    } else {
-      html+='<span class="email-part non-clickable">'+escHtml(part.text)+'</span>';
-    }
+    const cls='email-part'+(isFound?' found':'');
+    html+='<span class="'+cls+'" onclick="exClickPart('+exCurrent+','+idx+')">'+escHtml(part.text)+'</span>';
   });
   html+='</div>';
   html+='<div class="ex-bottom-row">';
   html+='<button class="reveal-btn" onclick="revealAll()">'+data.reveal+'</button>';
   html+='<button class="ex-next-btn'+(allFound?' unlocked':'')+'" onclick="'+(allFound?'exNext()':'')+'">'+( isLast?data.finish:data.next)+' &#8594;</button>';
-  html+='</div>';
-  html+='</div>';
+  html+='</div></div>';
   document.getElementById('ex-app').innerHTML=html;
 }
 
-function escHtml(str){
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+function escHtml(str){return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 function exClickPart(scenarioIdx, partIdx){
   const data=getExData();
-  const scenario=data.scenarios[scenarioIdx];
-  const part=scenario.parts[partIdx];
+  const part=data.scenarios[scenarioIdx].parts[partIdx];
+  if(part.text==='\n') return;
+  const improvedEl=document.getElementById('popup-improved-text');
+  const correctEl=document.getElementById('popup-correct-text');
+  const whyLabelEl=document.getElementById('popup-why-label');
+  const whyTextEl=document.getElementById('popup-why-text');
+  const improvedLabelEl=document.getElementById('popup-improved-label');
   if(part.clickable){
     if(!exFound[scenarioIdx]) exFound[scenarioIdx]={};
     exFound[scenarioIdx][partIdx]=true;
-    document.getElementById('popup-improved-label').textContent=data.improved+':';
-    const improvedEl=document.getElementById('popup-improved-text');
+    improvedLabelEl.textContent=data.improved+':';
     if(part.improved){improvedEl.style.display='block';improvedEl.textContent=part.improved;}
     else{improvedEl.style.display='none';}
-    document.getElementById('popup-why-label').textContent=data.why+':';
-    document.getElementById('popup-why-text').textContent=part.why;
-    document.getElementById('popup-close').textContent=data.close;
+    correctEl.style.display='none';
+    whyLabelEl.textContent=data.why+':';
+    whyTextEl.textContent=part.why;
   } else {
-    document.getElementById('popup-improved-label').textContent='';
-    document.getElementById('popup-improved-text').style.display='none';
-    document.getElementById('popup-why-label').textContent='';
-    document.getElementById('popup-why-text').textContent={en:'This sentence is correct!',de:'Dieser Satz ist korrekt!',it:'Questa frase è corretta!'}[currentLang];
-    document.getElementById('popup-close').textContent=data.close;
+    improvedLabelEl.textContent='';
+    improvedEl.style.display='none';
+    correctEl.style.display='block';
+    correctEl.textContent=data.correct_sentence;
+    whyLabelEl.textContent='';
+    whyTextEl.textContent='';
   }
+  document.getElementById('popup-close').textContent=data.close;
   document.getElementById('popup').classList.add('show');
   renderEx();
 }
@@ -582,9 +576,7 @@ function revealAll(){
   const data=getExData();
   const scenario=data.scenarios[exCurrent];
   if(!exFound[exCurrent]) exFound[exCurrent]={};
-  scenario.parts.forEach((part,idx)=>{
-    if(part.clickable) exFound[exCurrent][idx]=true;
-  });
+  scenario.parts.forEach((part,idx)=>{if(part.clickable) exFound[exCurrent][idx]=true;});
   renderEx();
 }
 
@@ -607,7 +599,6 @@ function renderExDone(){
 }
 
 function exRestart(){exCurrent=0;exDone=false;exFound={};renderEx();}
-
 renderQuiz();
 </script>
 </body>
