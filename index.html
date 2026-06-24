@@ -13,11 +13,11 @@
   .subtitle { font-size: 13px; color: #666; margin-bottom: 1.5rem; }
   .lang-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; }
   .lang-btn { padding: 6px 16px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #666; cursor: pointer; font-size: 13px; }
-  .lang-btn.active { background: #f0f0ee; color: #1a1a1a; border-color: #999; font-weight: 500; }
+  .lang-btn.active { background: #eeecf9; color: #332E80; border-color: #332E80; font-weight: 500; }
   .progress-bar-bg { height: 4px; background: #e5e5e5; border-radius: 2px; margin-bottom: 1.5rem; }
-  .progress-bar-fill { height: 4px; background: #888; border-radius: 2px; transition: width 0.3s; }
+  .progress-bar-fill { height: 4px; background: #332E80; border-radius: 2px; transition: width 0.3s; }
   .q-counter { font-size: 12px; color: #999; margin-bottom: 0.5rem; }
-  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px; background: #e8f0fb; color: #1a5fa5; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px; background: #eeecf9; color: #332E80; }
   .q-text { font-size: 16px; font-weight: 500; margin-bottom: 1.25rem; line-height: 1.5; }
   .options-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
   .opt-btn { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; text-align: left; transition: background 0.15s, border-color 0.15s; width: 100%; }
@@ -32,7 +32,7 @@
   .opt-btn.wrong .opt-text { color: #a32d2d; }
   .feedback-box { padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 1.5; margin-bottom: 1rem; display: none; }
   .feedback-box.show { display: block; }
-  .feedback-box.ok { background: #eaf3de; color: #3b6d11; border: 0.5px solid #7ab84a; }
+  .feedback-box.ok { background: #eeecf9; color: #332E80; border: 0.5px solid #7ab84a; }
   .feedback-box.no { background: #fcebeb; color: #a32d2d; border: 0.5px solid #e24b4a; }
   .nav-row { display: flex; justify-content: flex-end; }
   .next-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; display: none; }
@@ -68,7 +68,7 @@ const QUIZZES = {
     correct_msg: "Correct!", wrong_msg: "Not quite.", score_label: "questions correct",
     review_title: "Your answers", your_ans: "Your answer:", correct_ans: "Correct answer:",
     questions: [
-      { topic:"Friendly & empathic communication", q:"What should you always do at the start of a customer message?", opts:["Jump straight to the solution","Thank the customer and apologize for the inconvenience","Ask the customer to call back later","Forward the case to refurbed immediately"], correct:1, explanation:"You should thank the customer for contacting you and explicitly apologize for the inconvenience they're reporting." },
+      { topic:"Friendly & empathic communication", q:"What should you always do at the start of a customer message?", opts:["Jump straight to the solution","Thank the customer and apologize for the inconvenience","Tell the customer you will contact the responsible department","Forward the case to refurbed immediately"], correct:1, explanation:"You should thank the customer for contacting you and explicitly apologize for the inconvenience they're reporting." },
       { topic:"Friendly & empathic communication", q:"In which language should you respond to a customer?", opts:["Always in English","In your company's headquarter language","In the same language the customer used","In the most widely spoken market language"], correct:2, explanation:"Always use the same language the customer used to contact you." },
       { topic:"Tone of voice", q:"What is the refurbed tone of voice archetype?", opts:["Formal and corporate","Everyman — informal and eye-level","Expert and authoritative","Neutral and impersonal"], correct:1, explanation:"The refurbed tone of voice follows an 'everyman' approach — informal, eye-level, confident and reassuring." },
       { topic:"Tone of voice", q:"How should you normally address a customer?", opts:["By their surname, formally","By their first name, informally","With a generic 'Dear Customer'","By their order number"], correct:1, explanation:"Address customers as equals, by their first name and in an informal style — unless they explicitly request formal." },
@@ -85,7 +85,7 @@ const QUIZZES = {
     correct_msg: "Richtig!", wrong_msg: "Leider falsch.", score_label: "Fragen richtig beantwortet",
     review_title: "Deine Antworten", your_ans: "Deine Antwort:", correct_ans: "Richtige Antwort:",
     questions: [
-      { topic:"Freundliche & empathische Kommunikation", q:"Was solltest du zu Beginn jeder Kundennachricht immer tun?", opts:["Direkt zur Lösung kommen","Dem Kunden danken und dich für die Unannehmlichkeiten entschuldigen","Den Kunden bitten, später zurückzurufen","Den Fall sofort an refurbed weiterleiten"], correct:1, explanation:"Du solltest dem Kunden für die Kontaktaufnahme danken und dich ausdrücklich für die gemeldeten Unannehmlichkeiten entschuldigen." },
+      { topic:"Freundliche & empathische Kommunikation", q:"Was solltest du zu Beginn jeder Kundennachricht immer tun?", opts:["Direkt zur Lösung kommen","Dem Kunden danken und dich für die Unannehmlichkeiten entschuldigen","Dem Kunden mitteilen, dass du die zuständige Abteilung kontaktieren wirst","Den Fall sofort an refurbed weiterleiten"], correct:1, explanation:"Du solltest dem Kunden für die Kontaktaufnahme danken und dich ausdrücklich für die gemeldeten Unannehmlichkeiten entschuldigen." },
       { topic:"Freundliche & empathische Kommunikation", q:"In welcher Sprache solltest du einem Kunden antworten?", opts:["Immer auf Englisch","In der Sprache des Firmensitzes","In der Sprache, in der der Kunde dich kontaktiert hat","In der meistgesprochenen Sprache des Marktes"], correct:2, explanation:"Verwende immer dieselbe Sprache, in der der Kunde dich kontaktiert hat." },
       { topic:"Tonalität", q:"Was ist der Tonalitäts-Archetyp von refurbed?", opts:["Formell und unternehmerisch","Everyman – informell und auf Augenhöhe","Expertenhaft und autoritär","Neutral und unpersönlich"], correct:1, explanation:"Die refurbed Tonalität folgt einem 'Everyman'-Ansatz – informell, auf Augenhöhe, selbstbewusst und beruhigend für Kunden." },
       { topic:"Tonalität", q:"Wie solltest du einen Kunden normalerweise ansprechen?", opts:["Mit Nachnamen und formell","Mit Vornamen und informell","Mit einer allgemeinen Anrede wie 'Sehr geehrter Kunde'","Mit der Bestellnummer"], correct:1, explanation:"Kunden werden als Gleichgestellte mit Vornamen und informell angesprochen – außer der Kunde wünscht ausdrücklich Formalität." },
@@ -102,7 +102,7 @@ const QUIZZES = {
     correct_msg: "Corretto!", wrong_msg: "Non esatto.", score_label: "domande corrette",
     review_title: "Le tue risposte", your_ans: "La tua risposta:", correct_ans: "Risposta corretta:",
     questions: [
-      { topic:"Comunicazione amichevole ed empatica", q:"Cosa dovresti sempre fare all'inizio di ogni messaggio al cliente?", opts:["Passare direttamente alla soluzione","Ringraziare il cliente e scusarsi per il disagio","Chiedere al cliente di richiamare più tardi","Trasferire il caso a refurbed immediatamente"], correct:1, explanation:"Devi ringraziare il cliente per averti contattato e scusarti esplicitamente per il disagio segnalato." },
+      { topic:"Comunicazione amichevole ed empatica", q:"Cosa dovresti sempre fare all'inizio di ogni messaggio al cliente?", opts:["Passare direttamente alla soluzione","Ringraziare il cliente e scusarsi per il disagio","Dire al cliente che contatterai il reparto responsabile","Trasferire il caso a refurbed immediatamente"], correct:1, explanation:"Devi ringraziare il cliente per averti contattato e scusarti esplicitamente per il disagio segnalato." },
       { topic:"Comunicazione amichevole ed empatica", q:"In quale lingua dovresti rispondere a un cliente?", opts:["Sempre in inglese","Nella lingua della sede aziendale","Nella stessa lingua usata dal cliente","Nella lingua più parlata nel mercato"], correct:2, explanation:"Usa sempre la stessa lingua in cui il cliente ti ha contattato." },
       { topic:"Tono di voce", q:"Qual è l'archetipo del tono di voce di refurbed?", opts:["Formale e aziendale","Everyman – informale e alla pari","Esperto e autorevole","Neutro e impersonale"], correct:1, explanation:"Il tono di voce di refurbed segue un approccio 'everyman' – informale, alla pari, sicuro e rassicurante per i clienti." },
       { topic:"Tono di voce", q:"Come dovresti normalmente rivolgerti a un cliente?", opts:["Con il cognome e formalmente","Con il nome di battesimo e informalmente","Con un generico 'Gentile Cliente'","Con il numero d'ordine"], correct:1, explanation:"Rivolgiti ai clienti come pari, con il loro nome di battesimo e in stile informale, a meno che non richiedano il formale." },
