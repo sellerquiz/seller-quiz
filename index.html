@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Communication Guidelines Quiz</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;700&display=swap">
 <style>
   @font-face {
     font-family: 'Youth Black';
     src: url('https://storage.googleapis.com/pub-refurbed-com/CRM/Youth_Black/Youth-Black.woff2') format('woff2'),
          url('https://storage.googleapis.com/pub-refurbed-com/CRM/Youth_Black/Youth-Black.woff') format('woff');
-    font-weight: 500;
+    font-weight: 900;
     font-style: normal;
   }
 </style>
@@ -18,10 +19,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Readex Pro', sans-serif; background: #f9f9f8; color: #1a1a1a; min-height: 100vh; display: flex; justify-content: center; padding: 2rem 1rem; }
   .container { width: 100%; max-width: 640px; }
-  h1 { font-size: 20px; font-family: 'Youth Black', sans-serif; font-weight: 500; margin-bottom: 0.25rem; }
+  h1 { font-size: 20px; font-family: 'Youth Black', sans-serif; font-weight: 900; margin-bottom: 0.25rem; }
   .subtitle { font-size: 13px; color: #666; margin-bottom: 1.5rem; }
+  .main-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; border-bottom: 0.5px solid #e5e5e5; padding-bottom: 0; }
+  .main-tab { padding: 8px 16px; border-radius: 8px 8px 0 0; border: 0.5px solid transparent; background: transparent; color: #666; cursor: pointer; font-size: 14px; font-family: 'Readex Pro', sans-serif; border-bottom: none; }
+  .main-tab.active { background: #fff; color: #332E80; border-color: #e5e5e5; border-bottom: 1px solid #fff; font-weight: 500; margin-bottom: -1px; }
+  .main-tab:hover:not(.active) { color: #332E80; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
   .lang-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; }
-  .lang-btn { padding: 6px 16px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #666; cursor: pointer; font-size: 13px; }
+  .lang-btn { padding: 6px 16px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #666; cursor: pointer; font-size: 13px; font-family: 'Readex Pro', sans-serif; }
   .lang-btn.active { background: #eeecf9; color: #332E80; border-color: #332E80; font-weight: 500; }
   .progress-bar-bg { height: 4px; background: #e5e5e5; border-radius: 2px; margin-bottom: 1.5rem; }
   .progress-bar-fill { height: 4px; background: #332E80; border-radius: 2px; transition: width 0.3s; }
@@ -29,7 +36,7 @@
   .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px; background: #eeecf9; color: #332E80; }
   .q-text { font-size: 16px; font-family: 'Readex Pro', sans-serif; font-weight: 400; margin-bottom: 1.25rem; line-height: 1.5; }
   .options-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
-  .opt-btn { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; text-align: left; transition: background 0.15s, border-color 0.15s; width: 100%; }
+  .opt-btn { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; text-align: left; transition: background 0.15s, border-color 0.15s; width: 100%; font-family: 'Readex Pro', sans-serif; }
   .opt-btn:hover:not(:disabled) { background: #f5f5f3; border-color: #999; }
   .opt-btn:disabled { cursor: default; }
   .opt-label { width: 26px; height: 26px; border-radius: 50%; border: 0.5px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; color: #666; }
@@ -41,10 +48,10 @@
   .opt-btn.wrong .opt-text { color: #a32d2d; }
   .feedback-box { padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 1.5; margin-bottom: 1rem; display: none; }
   .feedback-box.show { display: block; }
-  .feedback-box.ok { background: #eeecf9; color: #332E80; border: 0.5px solid #7ab84a; }
+  .feedback-box.ok { background: #eeecf9; color: #332E80; border: 0.5px solid #332E80; }
   .feedback-box.no { background: #fcebeb; color: #a32d2d; border: 0.5px solid #e24b4a; }
   .nav-row { display: flex; justify-content: flex-end; }
-  .next-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; display: none; }
+  .next-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; display: none; font-family: 'Readex Pro', sans-serif; }
   .next-btn.show { display: block; }
   .next-btn:hover { background: #f5f5f3; }
   .score-card { background: #f5f5f3; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
@@ -59,22 +66,59 @@
   .review-correct { color: #3b6d11; }
   .review-wrong { color: #a32d2d; }
   .review-explanation { font-size: 12px; color: #666; margin-top: 6px; padding-top: 6px; border-top: 0.5px solid #e5e5e5; line-height: 1.5; }
-  .restart-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; margin-top: 1rem; }
+  .restart-btn { padding: 8px 20px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; margin-top: 1rem; font-family: 'Readex Pro', sans-serif; }
   .restart-btn:hover { background: #f5f5f3; }
+
+  /* Email examples styles */
+  .scenario-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .scenario-btn { padding: 6px 14px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #666; cursor: pointer; font-size: 12px; font-family: 'Readex Pro', sans-serif; }
+  .scenario-btn.active { background: #eeecf9; color: #332E80; border-color: #332E80; font-weight: 500; }
+  .level-bar { display: flex; gap: 0; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; border: 0.5px solid #e5e5e5; }
+  .level-btn { flex: 1; padding: 8px; border: none; background: #fff; color: #666; cursor: pointer; font-size: 13px; font-family: 'Readex Pro', sans-serif; border-right: 0.5px solid #e5e5e5; }
+  .level-btn:last-child { border-right: none; }
+  .level-btn.bad.active { background: #fcebeb; color: #a32d2d; font-weight: 500; }
+  .level-btn.medium.active { background: #faeeda; color: #854f0b; font-weight: 500; }
+  .level-btn.good.active { background: #eaf3de; color: #3b6d11; font-weight: 500; }
+  .email-card { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; position: relative; }
+  .email-card.bad { border-left: 3px solid #e24b4a; }
+  .email-card.medium { border-left: 3px solid #ef9f27; }
+  .email-card.good { border-left: 3px solid #7ab84a; }
+  .email-level-badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 8px; margin-bottom: 1rem; }
+  .badge-bad { background: #fcebeb; color: #a32d2d; }
+  .badge-medium { background: #faeeda; color: #854f0b; }
+  .badge-good { background: #eaf3de; color: #3b6d11; }
+  .email-body { font-size: 14px; line-height: 1.7; color: #1a1a1a; white-space: pre-line; }
+  .annotations { margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid #e5e5e5; }
+  .annotation { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 13px; line-height: 1.5; }
+  .annotation-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+  .annotation.negative { color: #a32d2d; }
+  .annotation.warning { color: #854f0b; }
+  .annotation.positive { color: #3b6d11; }
+  .scenario-title { font-size: 14px; font-weight: 500; color: #332E80; margin-bottom: 1rem; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Communication Guidelines Quiz</h1>
+  <h1>Communication Guidelines</h1>
   <p class="subtitle">refurbed seller training</p>
-  <div id="app"></div>
+  <div class="main-tabs">
+    <button class="main-tab active" onclick="switchMainTab('quiz')">Quiz</button>
+    <button class="main-tab" onclick="switchMainTab('examples')">Email examples</button>
+  </div>
+  <div id="tab-quiz" class="tab-content active">
+    <div id="app"></div>
+  </div>
+  <div id="tab-examples" class="tab-content">
+    <div id="examples-app"></div>
+  </div>
 </div>
 
 <script>
+// ── QUIZ DATA ──────────────────────────────────────────────────────────────
 const QUIZZES = {
   en: {
     lang: "English", next: "Next question", finish: "See results", restart: "Retake quiz",
-    correct_msg: "Correct!", wrong_msg: "Not quite.", score_label: "questions correct",
+    correct_msg: "Correct!", wrong_msg: "Nicht ganz richtig.", score_label: "questions correct",
     review_title: "Your answers", your_ans: "Your answer:", correct_ans: "Correct answer:",
     questions: [
       { topic:"Friendly & empathic communication", q:"What should you always do at the start of a customer message?", opts:["Jump straight to the solution","Thank the customer and apologize for the inconvenience","Tell the customer you will contact the responsible department","Forward the case to refurbed immediately"], correct:1, explanation:"You should thank the customer for contacting you and explicitly apologize for the inconvenience they're reporting." },
@@ -86,7 +130,7 @@ const QUIZZES = {
       { topic:"Positive communication", q:"What should you focus on to stay positive?", opts:["Explaining what you cannot do","Redirecting to refurbed support","Emphasizing what you CAN do","Keeping the message as short as possible"], correct:2, explanation:"Stay positive by emphasizing what you CAN do, using reliable committed expressions, and de-escalating where possible." },
       { topic:"Addressing the request", q:"When should you ask all clarifying questions?", opts:["After sending the initial solution","In your very first message","Only if the customer asks first","In a separate follow-up ticket"], correct:1, explanation:"Ask all clarifying questions in your first message to avoid long back-and-forth exchanges." },
       { topic:"Addressing the request", q:"Why must you not move communication outside the ticketing system?", opts:["It's slower for the customer","refurbed can't support either party if info isn't visible","It creates extra work for the seller","It violates data privacy laws"], correct:1, explanation:"refurbed won't be able to support the seller or customer if the information is not visible to them." },
-      { topic:"Message structure", q:"What are the 6 elements of the recommended message formula?", opts:["Greeting, Opening, Problem summary, Options, Price, Signature","Introduction, Apology, Solution, Timeline, Disclaimer, Sign-off","Greeting, Opening, Explicit acknowledgement, Response/Solution, Final support offer, Farewell + Signature","Greeting, Order details, Explanation, Next steps, Signature"], correct:2, explanation:"The formula is: Greeting → Opening → Explicit acknowledgement → Response/Solution → Final offer for support → Farewell + Standard signature." }
+      { topic:"Message structure", q:"What are the 6 elements of the recommended message formula?", opts:["Greeting, Opening, Problem summary, Options, Price, Signature","Introduction, Apology, Solution, Timeline, Disclaimer, Sign-off","Greeting, Opening, Explicit acknowledgement, Response/Solution, Final support offer, Farewell + Signature","Greeting, Order details, Explanation, Next steps, Signature"], correct:2, explanation:"The formula is: Greeting, Opening, Explicit acknowledgement, Response/Solution, Final offer for support, Farewell + Standard signature." }
     ]
   },
   de: {
@@ -103,7 +147,7 @@ const QUIZZES = {
       { topic:"Positive Kommunikation", q:"Worauf solltest du dich konzentrieren, um positiv zu bleiben?", opts:["Erklären, was du nicht tun kannst","Den Kunden an refurbed weiterleiten","Betonen, was du TUN KANNST","Die Nachricht so kurz wie möglich halten"], correct:2, explanation:"Bleibe positiv, indem du betonst, was du TUN KANNST, zuverlässige Ausdrücke verwendest und deeskalierst." },
       { topic:"Auf Anfragen eingehen", q:"Wann solltest du alle Rückfragen stellen?", opts:["Nach dem Senden der ersten Lösung","In deiner allerersten Nachricht","Nur wenn der Kunde zuerst darum bittet","In einem separaten Folge-Ticket"], correct:1, explanation:"Alle Rückfragen sollten in der ersten Nachricht gestellt werden, um lange Hin-und-Her-Kommunikation zu vermeiden." },
       { topic:"Auf Anfragen eingehen", q:"Warum darf die Kommunikation nicht außerhalb des Ticketsystems stattfinden?", opts:["Es ist langsamer für den Kunden","refurbed kann nicht helfen, wenn die Infos nicht sichtbar sind","Es erzeugt mehr Arbeit für den Verkäufer","Es verstößt gegen Datenschutzgesetze"], correct:1, explanation:"refurbed kann den Verkäufer oder Kunden nicht unterstützen, wenn die Informationen nicht sichtbar sind." },
-      { topic:"Nachrichtenstruktur", q:"Was sind die 6 Elemente der empfohlenen Nachrichtenformel?", opts:["Begrüßung, Eröffnung, Problemzusammenfassung, Optionen, Preis, Unterschrift","Einleitung, Entschuldigung, Lösung, Zeitplan, Haftungsausschluss, Abschluss","Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Unterschrift","Begrüßung, Bestelldetails, Erklärung, Nächste Schritte, Unterschrift"], correct:2, explanation:"Die Formel lautet: Begrüßung → Eröffnung → Explizite Anerkennung → Antwort/Lösung → Abschließendes Supportangebot → Verabschiedung + Standardunterschrift." }
+      { topic:"Nachrichtenstruktur", q:"Was sind die 6 Elemente der empfohlenen Nachrichtenformel?", opts:["Begrüßung, Eröffnung, Problemzusammenfassung, Optionen, Preis, Unterschrift","Einleitung, Entschuldigung, Lösung, Zeitplan, Haftungsausschluss, Abschluss","Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Unterschrift","Begrüßung, Bestelldetails, Erklärung, Nächste Schritte, Unterschrift"], correct:2, explanation:"Die Formel lautet: Begrüßung, Eröffnung, Explizite Anerkennung, Antwort/Lösung, Abschließendes Supportangebot, Verabschiedung + Standardunterschrift." }
     ]
   },
   it: {
@@ -120,14 +164,200 @@ const QUIZZES = {
       { topic:"Comunicazione positiva", q:"Su cosa dovresti concentrarti per mantenere un tono positivo?", opts:["Spiegare cosa non puoi fare","Reindirizzare il cliente a refurbed","Sottolineare ciò che PUOI fare","Mantenere il messaggio il più breve possibile"], correct:2, explanation:"Mantieni un tono positivo concentrandoti su ciò che PUOI fare, usando espressioni affidabili e de-escalando dove possibile." },
       { topic:"Gestione delle richieste", q:"Quando dovresti porre tutte le domande di chiarimento?", opts:["Dopo aver inviato la prima soluzione","Nel tuo primo messaggio","Solo se il cliente lo chiede prima","In un ticket di follow-up separato"], correct:1, explanation:"Poni tutte le domande di chiarimento nel primo messaggio per evitare lunghi scambi." },
       { topic:"Gestione delle richieste", q:"Perché non devi spostare la comunicazione fuori dal sistema di ticketing?", opts:["È più lento per il cliente","refurbed non può supportare nessuno se le info non sono visibili","Crea lavoro extra per il venditore","Va contro le leggi sulla privacy"], correct:1, explanation:"refurbed non può supportare il venditore o il cliente se le informazioni non sono visibili." },
-      { topic:"Struttura del messaggio", q:"Quali sono i 6 elementi della formula di messaggio consigliata?", opts:["Saluto, Apertura, Riepilogo problema, Opzioni, Prezzo, Firma","Introduzione, Scuse, Soluzione, Tempistiche, Disclaimer, Chiusura","Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta supporto finale, Congedo + Firma","Saluto, Dettagli ordine, Spiegazione, Prossimi passi, Firma"], correct:2, explanation:"La formula è: Saluto → Apertura → Riconoscimento esplicito → Risposta/Soluzione → Offerta finale di supporto → Congedo + Firma standard." }
+      { topic:"Struttura del messaggio", q:"Quali sono i 6 elementi della formula di messaggio consigliata?", opts:["Saluto, Apertura, Riepilogo problema, Opzioni, Prezzo, Firma","Introduzione, Scuse, Soluzione, Tempistiche, Disclaimer, Chiusura","Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta supporto finale, Congedo + Firma","Saluto, Dettagli ordine, Spiegazione, Prossimi passi, Firma"], correct:2, explanation:"La formula è: Saluto, Apertura, Riconoscimento esplicito, Risposta/Soluzione, Offerta finale di supporto, Congedo + Firma standard." }
     ]
   }
 };
 
+// ── EMAIL EXAMPLES DATA ────────────────────────────────────────────────────
+const SCENARIOS = [
+  {
+    title: "Scenario 1: Return request with damaged item",
+    levels: {
+      bad: {
+        text: `Device must be sent back before refund can be processed. Refund will be issued after inspection. If item is not returned within 14 days the request will be closed.`,
+        annotations: [
+          { type: "negative", text: "No greeting or customer name — immediately impersonal and cold." },
+          { type: "negative", text: "No empathy or acknowledgement of the customer's issue." },
+          { type: "negative", text: "Threatening tone — 'the request will be closed' sounds dismissive." },
+          { type: "negative", text: "No signature or sign-off." }
+        ]
+      },
+      medium: {
+        text: `Hello John, thank you for contacting us. We have received your return request and will process it as soon as possible. Please send the item back using the return label attached. Once we receive it we will issue your refund. Let us know if you need anything else.\nKind regards, Sofia`,
+        annotations: [
+          { type: "positive", text: "Good: has a greeting and uses the customer's name." },
+          { type: "positive", text: "Good: has a sign-off and name." },
+          { type: "warning", text: "Everything is crammed into one block with no paragraph breaks, making it hard to read." },
+          { type: "warning", text: "No empathy or acknowledgement of the customer's frustration." }
+        ]
+      },
+      good: {
+        text: `Hello John,\n\nThank you for reaching out to us and for your patience.\n\nI'm sorry to hear that the screen on your iPhone stopped working, I understand that this is really frustrating.\n\nWe'd be happy to arrange a return and inspection for you. Once you confirm you'd like to proceed, we'll send you a prepaid return label within 24 hours. As soon as we receive the item back, we'll examine it and reach out to you with a solution.\n\nPlease let me know if you have any questions and I'll be happy to help.\n\nHave a great rest of your day!\n\nKind regards,\nSofia\nTechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Personal greeting with the customer's first name." },
+          { type: "positive", text: "Opens with gratitude and acknowledges patience." },
+          { type: "positive", text: "Explicit empathy — acknowledges the specific issue and the frustration." },
+          { type: "positive", text: "Clear next steps with a realistic timeline." },
+          { type: "positive", text: "Offer of further support before signing off." },
+          { type: "positive", text: "Warm farewell and professional signature." },
+          { type: "positive", text: "Each point has its own paragraph with empty lines in between." }
+        ]
+      }
+    }
+  },
+  {
+    title: "Scenario 2: Customer asking about delivery status",
+    levels: {
+      bad: {
+        text: `Order is in transit. Delivery times are estimates only. Check tracking link for updates.`,
+        annotations: [
+          { type: "negative", text: "No greeting or customer name." },
+          { type: "negative", text: "No empathy — doesn't acknowledge the customer's concern." },
+          { type: "negative", text: "Dismissive tone — puts the burden entirely on the customer." },
+          { type: "negative", text: "No signature or sign-off." }
+        ]
+      },
+      medium: {
+        text: `Hello Sarah, thank you for contacting us. Your order is currently on its way and should arrive soon. You can check the tracking link in your confirmation email for updates. Let us know if you need anything else.\nKind regards, Sofia, TechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Good: greeting with customer name and sign-off." },
+          { type: "warning", text: "No empathy or acknowledgement of the customer's concern." },
+          { type: "warning", text: "Vague — 'should arrive soon' doesn't give a clear timeline." },
+          { type: "warning", text: "All in one block with no paragraph spacing." }
+        ]
+      },
+      good: {
+        text: `Hello Sarah,\n\nThank you for reaching out to us.\n\nI'm sorry to hear your order hasn't arrived yet, I completely understand how frustrating that can be.\n\nI've checked your shipment and it's currently in transit. According to the tracking information, your order should arrive by Thursday 26 June. You can follow the latest updates using your tracking link here: [tracking link].\n\nPlease don't hesitate to reach out if it hasn't arrived by then and I'll look into it further for you.\n\nHave a great day!\n\nKind regards,\nSofia\nTechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Personal greeting and empathy for the customer's concern." },
+          { type: "positive", text: "Specific and helpful — gives a concrete expected delivery date." },
+          { type: "positive", text: "Proactively offers further help if the issue isn't resolved." },
+          { type: "positive", text: "Clear paragraph structure with empty lines between each point." }
+        ]
+      }
+    }
+  },
+  {
+    title: "Scenario 3: Customer requesting a refund after returning an item",
+    levels: {
+      bad: {
+        text: `Refund will be processed after item is received and inspected. This can take up to 14 business days. No further action required from your side.`,
+        annotations: [
+          { type: "negative", text: "No greeting or customer name." },
+          { type: "negative", text: "No gratitude for the return or acknowledgement of waiting time." },
+          { type: "negative", text: "Cold and robotic tone with no empathy." },
+          { type: "negative", text: "No sign-off or signature." }
+        ]
+      },
+      medium: {
+        text: `Hello Michael, thank you for returning your item. We have received your return and are currently inspecting it. Once the inspection is complete we will process your refund. This can take a few business days. Let us know if you have any questions.\nKind regards, Sofia, TechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Good: greeting with name, thanks and a sign-off." },
+          { type: "warning", text: "No paragraph spacing — all crammed into one block." },
+          { type: "warning", text: "Vague timeline — 'a few business days' doesn't manage expectations well." },
+          { type: "warning", text: "No confirmation email mentioned so the customer doesn't know when they'll hear back." }
+        ]
+      },
+      good: {
+        text: `Hello Michael,\n\nThank you for sending the item back to us and for your patience throughout this process.\n\nI'm happy to let you know that we have received your return and our team is currently inspecting it.\n\nOnce the inspection is complete, your refund will be processed within 3 to 5 business days. You'll receive a confirmation email as soon as it's been issued.\n\nPlease let me know if you have any questions in the meantime, I'm happy to help.\n\nHave a great rest of your week!\n\nKind regards,\nSofia\nTechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Thanks the customer for their patience — acknowledges the effort of returning." },
+          { type: "positive", text: "Positive confirmation that the return was received." },
+          { type: "positive", text: "Specific timeline given — sets clear expectations." },
+          { type: "positive", text: "Mentions a confirmation email so the customer knows what to expect." },
+          { type: "positive", text: "Clear paragraph structure with empty lines between each point." }
+        ]
+      }
+    }
+  },
+  {
+    title: "Scenario 4: Customer complaining about wrong item received",
+    levels: {
+      bad: {
+        text: `Please provide photos of the item received. We will investigate and respond accordingly. Do not return the item until further notice.`,
+        annotations: [
+          { type: "negative", text: "No greeting, no name, no empathy." },
+          { type: "negative", text: "No apology for sending the wrong item." },
+          { type: "negative", text: "Commanding tone — 'do not return the item until further notice' sounds threatening." },
+          { type: "negative", text: "No sign-off or signature." }
+        ]
+      },
+      medium: {
+        text: `Hello Emma, thank you for contacting us. We are sorry to hear you received the wrong item. Please send us photos of the item you received so we can look into this for you. We will get back to you as soon as possible.\nKind regards, Sofia, TechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Good: greeting with name, apology and sign-off." },
+          { type: "warning", text: "No paragraph spacing — everything in one block." },
+          { type: "warning", text: "Vague — 'as soon as possible' doesn't give a timeline." },
+          { type: "warning", text: "Doesn't explain why the photo is needed or what happens next." }
+        ]
+      },
+      good: {
+        text: `Hello Emma,\n\nThank you for getting in touch with us, and I sincerely apologize for sending you the wrong item, I can imagine how disappointing that must be.\n\nTo help us resolve this as quickly as possible, could you send us a photo of the item you received? This will help us confirm the details and arrange the correct replacement for you right away.\n\nOnce we receive your photos, we'll get back to you within 24 hours with the next steps.\n\nI'm sorry again for the inconvenience and thank you for your patience.\n\nKind regards,\nSofia\nTechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Sincere apology right at the start." },
+          { type: "positive", text: "Explains clearly why the photo is needed — gives the customer context." },
+          { type: "positive", text: "Specific timeline of 24 hours — manages expectations." },
+          { type: "positive", text: "Closes with another apology and thanks for patience." },
+          { type: "positive", text: "Clear paragraph structure with empty lines between each point." }
+        ]
+      }
+    }
+  },
+  {
+    title: "Scenario 5: Customer writing in German",
+    levels: {
+      bad: {
+        text: `Dear customer, thank you for your message. Please note that our return policy requires items to be returned within 14 days. Refunds are processed within 14 business days after receipt.`,
+        annotations: [
+          { type: "negative", text: "Responded in English even though the customer wrote in German." },
+          { type: "negative", text: "No customer name used — generic 'Dear customer'." },
+          { type: "negative", text: "No empathy or acknowledgement of the issue." },
+          { type: "negative", text: "No sign-off or signature." }
+        ]
+      },
+      medium: {
+        text: `Hallo Lukas, vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten und werden sie so schnell wie möglich bearbeiten. Bitte sende uns weitere Informationen, damit wir dir helfen können.\nMit freundlichen Grüßen, Sofia, TechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Good: responded in German and used the customer's name." },
+          { type: "positive", text: "Good: has a sign-off in German." },
+          { type: "warning", text: "No paragraph spacing — all in one block." },
+          { type: "warning", text: "Asks for more information but doesn't explain what information is needed or why." },
+          { type: "warning", text: "No empathy or acknowledgement of the customer's issue." }
+        ]
+      },
+      good: {
+        text: `Hallo Lukas,\n\nvielen Dank, dass du dich an uns gewandt hast, und danke für deine Geduld.\n\nEs tut mir leid zu hören, dass dein Gerät nicht mehr eingeschaltet werden kann, das ist wirklich ärgerlich und ich verstehe das gut.\n\nWir helfen dir gerne weiter. Damit wir das Problem so schnell wie möglich lösen können, würden wir dich bitten, uns kurz zu beschreiben, seit wann das Problem besteht und ob das Gerät zuvor schon einmal ähnliche Probleme hatte.\n\nSobald wir deine Antwort erhalten, melden wir uns innerhalb von 24 Stunden mit den nächsten Schritten bei dir.\n\nSchreib uns gerne, wenn du noch weitere Fragen hast, wir sind für dich da!\n\nViele Grüße,\nSofia\nTechSeller GmbH`,
+        annotations: [
+          { type: "positive", text: "Responded in German — matching the customer's language." },
+          { type: "positive", text: "Empathy shown clearly and naturally in German." },
+          { type: "positive", text: "Explains exactly what information is needed and why." },
+          { type: "positive", text: "Clear 24-hour response commitment." },
+          { type: "positive", text: "Warm, friendly closing in line with the informal refurbed tone of voice." },
+          { type: "positive", text: "Clear paragraph structure with empty lines between each point." }
+        ]
+      }
+    }
+  }
+];
+
+// ── QUIZ STATE ─────────────────────────────────────────────────────────────
 let currentLang='en', currentQ=0, answered=false, userAnswers=[], quizDone=false;
 function getQuiz(){return QUIZZES[currentLang];}
 
+// ── EXAMPLES STATE ─────────────────────────────────────────────────────────
+let currentScenario=0, currentLevel='bad';
+
+// ── MAIN TAB SWITCH ────────────────────────────────────────────────────────
+function switchMainTab(tab) {
+  document.querySelectorAll('.main-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelector('.main-tab[onclick="switchMainTab(\''+tab+'\')"]').classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+  if(tab==='examples') renderExamples();
+}
+
+// ── QUIZ RENDER ────────────────────────────────────────────────────────────
 function renderLangBar(){
   return '<div class="lang-bar">'+Object.keys(QUIZZES).map(k=>
     '<button class="lang-btn'+(k===currentLang?' active':'')+'" onclick="switchLang(\''+k+'\')">'+QUIZZES[k].lang+'</button>'
@@ -187,6 +417,42 @@ function selectAnswer(i){if(answered)return;answered=true;userAnswers[currentQ]=
 function nextQuestion(){const t=getQuiz().questions.length;if(currentQ<t-1){currentQ++;answered=false;renderQuiz();}else{quizDone=true;renderResults();}}
 function switchLang(l){currentLang=l;currentQ=0;answered=false;userAnswers=[];quizDone=false;renderQuiz();}
 function restartQuiz(){currentQ=0;answered=false;userAnswers=[];quizDone=false;renderQuiz();}
+
+// ── EXAMPLES RENDER ────────────────────────────────────────────────────────
+function renderExamples(){
+  const scenario=SCENARIOS[currentScenario];
+  const level=scenario.levels[currentLevel];
+  const levelLabels={bad:'Bad example',medium:'Medium example',good:'Good example'};
+  const badgeClass={bad:'badge-bad',medium:'badge-medium',good:'badge-good'};
+  const iconClass={bad:'ti-x',medium:'ti-alert-triangle',good:'ti-check'};
+  const annotationIcon={negative:'✗',warning:'△',positive:'✓'};
+
+  let html='<div class="scenario-bar">';
+  SCENARIOS.forEach((s,i)=>{
+    html+='<button class="scenario-btn'+(i===currentScenario?' active':'')+'" onclick="switchScenario('+i+')">'+(i+1)+'. '+s.title.split(':')[1].trim()+'</button>';
+  });
+  html+='</div>';
+  html+='<div class="scenario-title">'+scenario.title+'</div>';
+  html+='<div class="level-bar">';
+  ['bad','medium','good'].forEach(l=>{
+    html+='<button class="level-btn '+l+(l===currentLevel?' active':'')+'" onclick="switchLevel(\''+l+'\')">'+levelLabels[l]+'</button>';
+  });
+  html+='</div>';
+  html+='<div class="email-card '+currentLevel+'">';
+  html+='<div class="email-level-badge '+badgeClass[currentLevel]+'">'+levelLabels[currentLevel]+'</div>';
+  html+='<div class="email-body">'+level.text+'</div>';
+  html+='<div class="annotations">';
+  level.annotations.forEach(a=>{
+    html+='<div class="annotation '+a.type+'"><span class="annotation-icon">'+annotationIcon[a.type]+'</span><span>'+a.text+'</span></div>';
+  });
+  html+='</div></div>';
+  document.getElementById('examples-app').innerHTML=html;
+}
+
+function switchScenario(i){currentScenario=i;currentLevel='bad';renderExamples();}
+function switchLevel(l){currentLevel=l;renderExamples();}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
 renderQuiz();
 </script>
 </body>
