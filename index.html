@@ -120,7 +120,7 @@
     <div class="popup-improved-text" id="popup-improved-text" style="display:none"></div>
     <div class="popup-why-label" id="popup-why-label"></div>
     <div class="popup-why-text" id="popup-why-text"></div>
-    <button class="popup-close" onclick="closePopup()">Close</button>
+    <button class="popup-close" id="popup-close" onclick="closePopup()">Close</button>
   </div>
 </div>
 
@@ -549,24 +549,25 @@ function escHtml(str){
 
 function exClickPart(scenarioIdx, partIdx){
   const data=getExData();
-  const part=data.scenarios[scenarioIdx].parts[partIdx];
-  if(!part.clickable) return;
-  if(!exFound[scenarioIdx]) exFound[scenarioIdx]={};
-  exFound[scenarioIdx][partIdx]=true;
-
-  const improvedLabel=data.improved;
-  const whyLabel=data.why;
-  document.getElementById('popup-improved-label').textContent=improvedLabel+':';
-  const improvedEl=document.getElementById('popup-improved-text');
-  if(part.improved){
-    improvedEl.style.display='block';
-    improvedEl.textContent=part.improved;
+  const scenario=data.scenarios[scenarioIdx];
+  const part=scenario.parts[partIdx];
+  if(part.clickable){
+    if(!exFound[scenarioIdx]) exFound[scenarioIdx]={};
+    exFound[scenarioIdx][partIdx]=true;
+    document.getElementById('popup-improved-label').textContent=data.improved+':';
+    const improvedEl=document.getElementById('popup-improved-text');
+    if(part.improved){improvedEl.style.display='block';improvedEl.textContent=part.improved;}
+    else{improvedEl.style.display='none';}
+    document.getElementById('popup-why-label').textContent=data.why+':';
+    document.getElementById('popup-why-text').textContent=part.why;
+    document.getElementById('popup-close').textContent=data.close;
   } else {
-    improvedEl.style.display='none';
+    document.getElementById('popup-improved-label').textContent='';
+    document.getElementById('popup-improved-text').style.display='none';
+    document.getElementById('popup-why-label').textContent='';
+    document.getElementById('popup-why-text').textContent={en:'This sentence is correct!',de:'Dieser Satz ist korrekt!',it:'Questa frase è corretta!'}[currentLang];
+    document.getElementById('popup-close').textContent=data.close;
   }
-  document.getElementById('popup-why-label').textContent=whyLabel+':';
-  document.getElementById('popup-why-text').textContent=part.why;
-  document.getElementById('popup-close').textContent=data.close;
   document.getElementById('popup').classList.add('show');
   renderEx();
 }
